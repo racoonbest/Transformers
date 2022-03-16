@@ -1,4 +1,4 @@
-package stepDefenition;
+package stepDefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.Select;
 
 
 import java.util.concurrent.TimeUnit;
+
+import static stepDefenition.TestSuiteSetUp.TestSuiteSetUp.chrome;
 
 
 public class CustomerAddresses {
