@@ -1,4 +1,13 @@
-out/
+# Maven
+log/
 target/
-.idea
+
+# Intellij
+.idea/
+*.iml
+*.iws
+# Java
 .class
+
+# Mac
+.DS_Store
