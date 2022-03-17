@@ -1,4 +1,4 @@
-package stepDefenition;
+package stepDefinitions;
 
 public class TestSuiteSetUp {
 
