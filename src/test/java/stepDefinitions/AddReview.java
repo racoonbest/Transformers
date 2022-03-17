@@ -56,7 +56,7 @@ public class AddReview {
         chrome.findElement(By.cssSelector("#AddProductReview_Title")).sendKeys("I like this book"); // title
         Thread.sleep(1000);
         chrome.findElement(By.cssSelector("#AddProductReview_ReviewText")).sendKeys("Highly recommend"); // body
-        chrome.findElement(By.cssSelector("#addproductrating_5")).click();
+        chrome.findElement(By.cssSelector("#addproductrating_5")).click(); // select Excellent for rating
         Thread.sleep(1000);
         chrome.findElement(By.cssSelector("[value = 'Submit review'")).click();
     }
