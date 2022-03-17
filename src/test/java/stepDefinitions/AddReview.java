@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
@@ -8,6 +9,12 @@ import static stepDefinitions.TestSuiteSetUp.chrome;
 
 
 public class AddReview {
+
+    @Given("Customer is on DemoShop home page")
+    public void customer_is_on_demo_shop_home_page() {
+        chrome.get("http://demowebshop.tricentis.com/");
+        chrome.manage().window().maximize();
+    }
 
     @When("Customer searches for Health Book")
     public void customer_searches_for_health_book() throws InterruptedException {
