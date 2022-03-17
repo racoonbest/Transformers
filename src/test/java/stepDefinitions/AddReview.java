@@ -16,7 +16,7 @@ public class AddReview {
         Thread.sleep(1000);
     }
 
-    @Then("Customer clicks the item")
+    @When("Customer clicks the item")
     public void customer_clicks_the_item() {
         chrome.findElement(By.cssSelector(".product-title")).click(); // click the item
     }
@@ -37,14 +37,14 @@ public class AddReview {
         chrome.findElement(By.cssSelector(".ico-login")).click();
     }
 
-    @Then("Customer enters credentials and clicks Log In button")
+    @When("Customer enters credentials and clicks Log In button")
     public void customer_enter_credentials_and_clicks_log_in_button() {
         chrome.findElement(By.cssSelector("#Email")).sendKeys("jane.doe@yahoo.com");
         chrome.findElement(By.cssSelector("#Password")).sendKeys("Demoweb123!");
         chrome.findElement(By.cssSelector("[value = 'Log in']")).click();
     }
 
-    @Then("Customer fills out the review form")
+    @When("Customer fills out the review form")
     public void customer_fills_out_the_review_form() throws InterruptedException {
         chrome.findElement(By.cssSelector("#AddProductReview_Title")).sendKeys("I like this book"); // title
         Thread.sleep(1000);
