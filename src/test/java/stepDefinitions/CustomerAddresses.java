@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.concurrent.TimeUnit;
 
 import static stepDefinitions.TestSuiteSetUp.TestSuiteSetUp.chrome;
+import static stepDefinitions.TestSuiteSetUp.chrome;
 
 
 public class CustomerAddresses {
