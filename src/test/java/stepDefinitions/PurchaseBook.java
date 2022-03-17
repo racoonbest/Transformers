@@ -52,13 +52,20 @@ public class PurchaseBook {
     }
 
     @Then("Customer chooses delivery methods")
-    public void customer_chooses_delivery_methods() {
+    public void customer_chooses_delivery_methods() throws InterruptedException {
         chrome.findElement(By.cssSelector("#billing-buttons-container .new-address-next-step-button")).click();
+        Thread.sleep(2000);
         chrome.findElement(By.cssSelector("#PickUpInStore")).isDisplayed();
+        Thread.sleep(2000);
         chrome.findElement(By.cssSelector("#PickUpInStore")).click();
+        Thread.sleep(2000);
         chrome.findElement(By.cssSelector("#shipping-buttons-container .button-1.new-address-next-step-button[value=Continue]")).click();
+        Thread.sleep(2000);
         chrome.findElement(By.cssSelector(".shipping-method-next-step-button")).click();
+        Thread.sleep(2000);
+        chrome.findElement(By.cssSelector("#paymentmethod_0")).isDisplayed();
         chrome.findElement(By.cssSelector(".payment-method-next-step-button")).click();
+        Thread.sleep(2000);
         chrome.findElement(By.cssSelector(".payment-info-next-step-button")).click();
     }
 
