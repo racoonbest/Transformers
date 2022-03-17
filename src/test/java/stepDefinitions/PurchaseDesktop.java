@@ -74,10 +74,13 @@ public class PurchaseDesktop {
        chrome.findElement(By.cssSelector("#confirm-order-buttons-container .confirm-order-next-step-button")).click();
     }
     @Then("Customer sees Thank You")
-    public void customer_sees_thank_you() {
+    public void customer_sees_thank_you() throws InterruptedException {
         chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         String thankYou = chrome.findElement(By.cssSelector(".page-title")).getText();
         System.out.println(thankYou);
+        Thread.sleep(2000);
+        String text3 = chrome.findElement(By.cssSelector(".details")).getText();
+        System.out.println(text3);
 
     }
 
