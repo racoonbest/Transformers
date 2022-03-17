@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
@@ -9,6 +10,12 @@ import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class AddReview {
 
+    @Given("Customer is on DemoShop home page")
+    public void customer_is_on_demo_shop_home_page() {
+        chrome.get("http://demowebshop.tricentis.com/");
+        chrome.manage().window().maximize();
+    }
+
     @When("Customer searches for Health Book")
     public void customer_searches_for_health_book() throws InterruptedException {
         chrome.findElement(By.cssSelector("[value = 'Search store']")).sendKeys("health book"); // search health book
@@ -16,7 +23,7 @@ public class AddReview {
         Thread.sleep(1000);
     }
 
-    @Then("Customer clicks the item")
+    @When("Customer clicks the item")
     public void customer_clicks_the_item() {
         chrome.findElement(By.cssSelector(".product-title")).click(); // click the item
     }
@@ -37,19 +44,19 @@ public class AddReview {
         chrome.findElement(By.cssSelector(".ico-login")).click();
     }
 
-    @Then("Customer enters credentials and clicks Log In button")
+    @When("Customer enters credentials and clicks Log In button")
     public void customer_enter_credentials_and_clicks_log_in_button() {
         chrome.findElement(By.cssSelector("#Email")).sendKeys("jane.doe@yahoo.com");
         chrome.findElement(By.cssSelector("#Password")).sendKeys("Demoweb123!");
         chrome.findElement(By.cssSelector("[value = 'Log in']")).click();
     }
 
-    @Then("Customer fills out the review form")
+    @When("Customer fills out the review form")
     public void customer_fills_out_the_review_form() throws InterruptedException {
         chrome.findElement(By.cssSelector("#AddProductReview_Title")).sendKeys("I like this book"); // title
         Thread.sleep(1000);
         chrome.findElement(By.cssSelector("#AddProductReview_ReviewText")).sendKeys("Highly recommend"); // body
-        chrome.findElement(By.cssSelector("#addproductrating_5")).click();
+        chrome.findElement(By.cssSelector("#addproductrating_5")).click(); // select Excellent for rating
         Thread.sleep(1000);
         chrome.findElement(By.cssSelector("[value = 'Submit review'")).click();
     }
