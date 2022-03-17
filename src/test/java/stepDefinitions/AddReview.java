@@ -4,7 +4,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
 
-import static stepDefinitions.TestSuiteSetUp.TestSuiteSetUp.chrome;
+import static stepDefinitions.TestSuiteSetUp.chrome;
 
 
 public class AddReview {
