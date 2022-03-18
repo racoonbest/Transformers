@@ -18,7 +18,6 @@ public class PurchaseAccessory {
 
     @Given("User in DemoShop home page")
     public void user_in_demo_shop_home_page() {
-        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         chrome.get("http://demowebshop.tricentis.com");
     }
 
