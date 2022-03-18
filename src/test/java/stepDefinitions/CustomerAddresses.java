@@ -3,6 +3,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
+import pageObjects.LogIn;
 
 
 import java.util.concurrent.TimeUnit;
@@ -12,25 +13,19 @@ import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class CustomerAddresses {
 
-
     @When("Customer clicks on Log in")
     public void customer_clicks_on_log_in() {
         chrome.findElement(By.cssSelector(".ico-login")).click();
-
     }
 
     @Then("Customer fills out Log in info")
     public void customer_fills_out_log_in_info() {
-        chrome.findElement(By.cssSelector("#Email")).sendKeys("simba10@gmail.com");
-        chrome.findElement(By.cssSelector("#Password")).sendKeys("simba1");
-
-
+        LogIn.with("leahope@gmail.com", "p@ssword");
     }
 
     @When("Customer clicks on Log in {int}")
     public void customer_clicks_on_log_in(Integer int1) {
         chrome.findElement(By.cssSelector(".returning-wrapper .buttons")).click();
-
     }
     @Then("Customer clicks on existing Gmail")
     public void customer_clicks_on_existing_gmail() {
