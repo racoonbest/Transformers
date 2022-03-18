@@ -1,5 +1,6 @@
 Feature: Purchase an Accessory
   Scenario: Customer is able to purchase accessories
+    Given Customer is on DemoShop homepage
     When Navigate Computers menu and select Accessories
     When Click TCP Instructor Led Training
     When Customer Add this item to Cart
