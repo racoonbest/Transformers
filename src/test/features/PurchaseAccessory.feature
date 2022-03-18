@@ -1,10 +1,17 @@
+
+
 Feature: Purchase an Accessory
   Scenario: Customer is able to purchase accessories
+    Given User in DemoShop home page
+    When User clicks on log in link
+    When User enters log in and pass and clicks log in btn
     When Navigate Computers menu and select Accessories
-    When Click TCP Instructor Led Training
-    When Customer Add this item to Cart
+    When Select TCP Instructor Led Training and add to cart
     When Go to shopping cart
     When Fill out Estimated Shipping info
     When Click agreement term and click checkout
     When Fill out checkout steps
-    Then Verify messge: Your order has been successfully processed!
+    When User selects shipping method and clicks continue
+    When User selects payment method
+    When User enters payment info and clicks continue
+    Then Verify message: Your order has been successfully processed!
