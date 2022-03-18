@@ -5,7 +5,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
@@ -30,6 +29,7 @@ public class PurchaseAccessory {
     }
     @When("Navigate Computers menu and select Accessories")
     public void navigate_computers_menu_and_select_accessories() {
+
         chrome.findElement(By.cssSelector(".header-menu [href=\"/computers\"]")).click();
         chrome.findElement(By.cssSelector("[alt=\"Picture for category Accessories\"]")).click();
     }
@@ -58,6 +58,7 @@ public class PurchaseAccessory {
         Select state = new Select(chrome.findElement(By.cssSelector("#StateProvinceId")));
         state.selectByVisibleText("Virginia");
         chrome.findElement(By.cssSelector("#ZipPostalCode")).sendKeys("22102");
+
     }
 
     @When("Click agreement term and click checkout")
