@@ -8,9 +8,8 @@ import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseAccessory {
 
-    @Given("Customer is on DemoShop home page")
-    public void customer_is_on_demo_shop_home_page() {
-        chrome.get("http://demowebshop.tricentis.com/");
-        chrome.manage().window().maximize();
+    @When("Navigate Computers menu and select Accessories")
+    public void navigate_computers_menu_and_select_accessories() {
+        
     }
 }
