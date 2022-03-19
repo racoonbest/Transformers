@@ -1,7 +1,5 @@
 package KayleeDay13;
 
-import KayleeDay13.LogIn;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
@@ -11,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-import static stepDefinitions.TestSuiteSetUp.chrome;
+import static KayleeDay13.TestSuiteSetUp.chrome;
 
 public class PurchaseNotebook {
 
@@ -23,14 +21,6 @@ public class PurchaseNotebook {
         LogIn.get();
         LogIn.with("jane.doe@yahoo.com", "Demoweb123!");
     }
-
-//    @When("Customer clicks Log In")
-//    public void customer_clicks_log_in() {
-//        chrome.findElement(By.cssSelector(".ico-login")).click();
-//        chrome.findElement(By.cssSelector("#Email")).sendKeys("jane.doe@yahoo.com");
-//        chrome.findElement(By.cssSelector("#Password")).sendKeys("Demoweb123!");
-//        chrome.findElement(By.cssSelector("[value = 'Log in']")).click();
-//    }
 
     @When("Navigate Computers menu and select Notebooks")
     public void navigate_computers_menu_and_select_notebooks() {

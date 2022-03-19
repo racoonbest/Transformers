@@ -13,6 +13,7 @@ import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseNotebook {
 
+
     @When("Customer clicks Log In")
     public void customer_clicks_log_in() {
         chrome.findElement(By.cssSelector(".ico-login")).click();
