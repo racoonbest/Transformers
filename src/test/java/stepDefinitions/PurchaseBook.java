@@ -6,35 +6,26 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import pageObjects.HomePage;
 import pageObjects.Login;
-
+import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.Keys.ENTER;
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseBook {
 
+    HomePage demoWeb;
     Login login;
-    HomePage homePage;
-
     @Given("Customer is in home page of DemoWebShop")
     public void customer_is_in_home_page_of_demo_web_shop() {
-        homePage = new HomePage(chrome);
-        homePage.launch();
-        //chrome.get("http://demowebshop.tricentis.com/");
+        demoWeb = new HomePage(chrome);
+        demoWeb.launch();
     }
 
-    @When("Customer clicks on Login button")
-    public void customer_clicks_on_login_button() {
-        login = new Login(chrome);
-        login.with("leahope@gmail.com","p@ssword");
-        //chrome.findElement(By.cssSelector(".ico-login")).click();
-    }
-
-    @Then("Customer enters valid credentials")
-    public void customer_enters_valid_credentials() {
-//        chrome.findElement(By.cssSelector("#Email")).sendKeys("leahope@gmail.com");
-//        chrome.findElement(By.cssSelector("#Password")).sendKeys("p@ssword");
-//        chrome.findElement(By.cssSelector(".login-button")).click();
-    }
+    @Then("Customer logs in")
+    public void customer_logs_in() {
+        login=new Login(chrome);
+        login.launch();
+        login.with("leahope@gmail.com", "p@ssword");
+        }
     @When("Customer searches for book")
     public void customer_searches_for_book() {
         chrome.findElement(By.name("q")).sendKeys("book", ENTER);
@@ -42,6 +33,7 @@ public class PurchaseBook {
 
     @Then("Customer clicks on Add cart button")
     public void customer_clicks_on_add_cart_button() {
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         chrome.findElement(By.cssSelector(".product-box-add-to-cart-button")).click();
     }
 
@@ -61,22 +53,21 @@ public class PurchaseBook {
         chrome.findElement(By.cssSelector(".page-title")).isDisplayed();
     }
 
-    @Then("Customer chooses delivery methods")
-    public void customer_chooses_delivery_methods() throws InterruptedException {
+    @When("Customer chooses delivery methods")
+    public void customer_chooses_delivery_methods()  {
         chrome.findElement(By.cssSelector("#billing-buttons-container .new-address-next-step-button")).click();
-        Thread.sleep(2000);
-        chrome.findElement(By.cssSelector("#PickUpInStore")).isDisplayed();
-        Thread.sleep(2000);
-        chrome.findElement(By.cssSelector("#PickUpInStore")).click();
-        Thread.sleep(2000);
-        chrome.findElement(By.cssSelector("#shipping-buttons-container .button-1.new-address-next-step-button[value=Continue]")).click();
-        Thread.sleep(2000);
-        chrome.findElement(By.cssSelector(".shipping-method-next-step-button")).click();
-        Thread.sleep(2000);
-        chrome.findElement(By.cssSelector("#paymentmethod_0")).isDisplayed();
-        chrome.findElement(By.cssSelector(".payment-method-next-step-button")).click();
-        Thread.sleep(2000);
-        chrome.findElement(By.cssSelector(".payment-info-next-step-button")).click();
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chrome.findElement(By.cssSelector("#shipping-buttons-container .new-address-next-step-button")).click();
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chrome.findElement(By.cssSelector("#shippingoption_1")).click();
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chrome.findElement(By.cssSelector("#shipping-method-buttons-container .shipping-method-next-step-button")).click();
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chrome.findElement(By.cssSelector("#payment-method-buttons-container .payment-method-next-step-button")).click();
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chrome.findElement(By.cssSelector("#payment-info-buttons-container .payment-info-next-step-button")).click();
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chrome.findElement(By.cssSelector("#confirm-order-buttons-container .confirm-order-next-step-button")).click();
     }
 
     @Then("Customer confirms delivery")
