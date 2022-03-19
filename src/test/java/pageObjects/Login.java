@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class Login {
     WebDriver driver;
-    String url = "http://demowebshop.tricentis.com/";
+    String url = "http://demowebshop.tricentis.com/login";
     By emailLocator = By.cssSelector("#Email");
     By passwordLocator = By.cssSelector("#Password");
 

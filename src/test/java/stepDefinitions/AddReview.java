@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
+import pageObjects.HomePage;
 import pageObjects.Login;
 
 import static stepDefinitions.TestSuiteSetUp.chrome;
@@ -11,11 +12,13 @@ import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class AddReview {
 
-    Login demoShopPage;
+    Login login;
+    HomePage homePage;
+
     @Given("Customer is on DemoShop home page")
     public void customer_is_on_demo_shop_home_page() {
-        demoShopPage = new Login(chrome);
-        demoShopPage.launch();
+        homePage = new HomePage(chrome);
+        homePage.launch();
 
     }
 
@@ -44,14 +47,13 @@ public class AddReview {
 
     @When("Customer clicks Log In")
     public void customer_clicks_log_in() {
-        chrome.findElement(By.cssSelector(".ico-login")).click();
+        login = new Login(chrome);
+        login.launch();
     }
 
     @When("Customer enters credentials and clicks Log In button")
     public void customer_enter_credentials_and_clicks_log_in_button() {
-        chrome.findElement(By.cssSelector("#Email")).sendKeys("jane.doe@yahoo.com");
-        chrome.findElement(By.cssSelector("#Password")).sendKeys("Demoweb123!");
-        chrome.findElement(By.cssSelector("[value = 'Log in']")).click();
+        login.with("jane.doe@yahoo.com", "Demoweb123!");
     }
 
     @When("Customer fills out the review form")
