@@ -1,6 +1,7 @@
 
   Feature: Purchase jewelry
 
+    @regression
     Scenario: Customer successfully purchases jewelry
 
       Given Customer is in home page of DemoWebShop

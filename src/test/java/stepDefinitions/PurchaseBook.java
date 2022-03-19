@@ -34,7 +34,7 @@ public class PurchaseBook {
 
     @Then("Customer clicks on Add cart button")
     public void customer_clicks_on_add_cart_button() {
-        chrome.findElement(By.cssSelector(".product-box-add-to-cart-button")).click();
+        chrome.findElement(By.cssSelector(".button-1#add-to-cart-button-71")).click();
     }
 
     @When("Customer opens shopping cart")
