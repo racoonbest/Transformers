@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import pageObjects.HomePage;
 import pageObjects.Login;
 
 import static org.openqa.selenium.Keys.ENTER;
@@ -11,18 +12,20 @@ import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseBook {
 
-    Login demoshop;
+    Login login;
+    HomePage homePage;
+
     @Given("Customer is in home page of DemoWebShop")
     public void customer_is_in_home_page_of_demo_web_shop() {
-        demoshop = new Login(chrome);
-        demoshop.launch();
+        homePage = new HomePage(chrome);
+        homePage.launch();
         //chrome.get("http://demowebshop.tricentis.com/");
     }
 
     @When("Customer clicks on Login button")
     public void customer_clicks_on_login_button() {
-        demoshop = new Login(chrome);
-        demoshop.loginWith("leahope@gmail.com","p@ssword");
+        login = new Login(chrome);
+        login.with("leahope@gmail.com","p@ssword");
         //chrome.findElement(By.cssSelector(".ico-login")).click();
     }
 
