@@ -18,7 +18,7 @@ public class Login {
         driver.get(url);
     }
 
-    public void loginWith(String email, String password){
+    public void with(String email, String password){
         driver.findElement(loginBtn).click();
         driver.findElement(emailLocator).sendKeys(email);
         driver.findElement(passwordLocator).sendKeys(password);
