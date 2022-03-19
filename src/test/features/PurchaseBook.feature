@@ -4,8 +4,7 @@
 
     Scenario: Customer is able to purchases a book successfully
       Given Customer is in home page of DemoWebShop
-      When Customer clicks on Login button
-      Then Customer enters valid credentials
+      When Customer logs in
       When Customer searches for book
       Then Customer clicks on Add cart button
       When Customer opens shopping cart

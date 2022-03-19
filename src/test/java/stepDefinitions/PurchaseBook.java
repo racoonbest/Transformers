@@ -1,5 +1,7 @@
 package stepDefinitions;
 
+import PageObjects.HomePage;
+import PageObjects.LogIn;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,22 +11,22 @@ import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseBook {
 
+    HomePage demoWebShop;
+    LogIn login;
+
     @Given("Customer is in home page of DemoWebShop")
     public void customer_is_in_home_page_of_demo_web_shop() {
-        chrome.get("http://demowebshop.tricentis.com/");
+        demoWebShop = new HomePage(chrome);
+        demoWebShop.launch();
     }
 
-    @When("Customer clicks on Login button")
-    public void customer_clicks_on_login_button() {
-        chrome.findElement(By.cssSelector(".ico-login")).click();
+    @When("Customer logs in")
+    public void customer_logs_in(){
+        login = new LogIn(chrome);
+        login.launch();
+        login.with("leahope@gmail.com", "p@ssword");
     }
 
-    @Then("Customer enters valid credentials")
-    public void customer_enters_valid_credentials() {
-        chrome.findElement(By.cssSelector("#Email")).sendKeys("leahope@gmail.com");
-        chrome.findElement(By.cssSelector("#Password")).sendKeys("p@ssword");
-        chrome.findElement(By.cssSelector(".login-button")).click();
-    }
     @When("Customer searches for book")
     public void customer_searches_for_book() {
         chrome.findElement(By.name("q")).sendKeys("book", ENTER);
