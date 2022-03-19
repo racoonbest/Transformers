@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import static KayleeDay13.TestSuiteSetUp.chrome;
 
-public class PurchaseNotebook {
+public class PurchaseNotebooks2 {
 
     LogIn LogIn;
 
