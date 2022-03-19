@@ -4,16 +4,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import pageObjects.DemoWebShopHome;
 import pageObjects.LogIn;
-
 import static org.openqa.selenium.Keys.ENTER;
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseBook {
 
+    LogIn LogIn;
     @Given("Customer is in home page of DemoWebShop")
     public void customer_is_in_home_page_of_demo_web_shop() {
-        chrome.get("http://demowebshop.tricentis.com/");
+        DemoWebShopHome.homePage();
     }
 
     @When("Customer clicks on Login button")
@@ -23,6 +24,7 @@ public class PurchaseBook {
 
     @Then("Customer enters valid credentials")
     public void customer_enters_valid_credentials() {
+        LogIn = new LogIn();
         LogIn.with("leahope@gmail.com", "p@ssword");
     }
         @When("Customer searches for book")
