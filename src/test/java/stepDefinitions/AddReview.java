@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
+import pageObjects.LogIn;
 
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
@@ -46,9 +47,7 @@ public class AddReview {
 
     @When("Customer enters credentials and clicks Log In button")
     public void customer_enter_credentials_and_clicks_log_in_button() {
-        chrome.findElement(By.cssSelector("#Email")).sendKeys("jane.doe@yahoo.com");
-        chrome.findElement(By.cssSelector("#Password")).sendKeys("Demoweb123!");
-        chrome.findElement(By.cssSelector("[value = 'Log in']")).click();
+        LogIn.with("leahope@gmail.com", "p@ssword");
     }
 
     @When("Customer fills out the review form")

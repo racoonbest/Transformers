@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 
 public class LogIn {
 
-   WebDriver driver;
+   static WebDriver driver;
 
-   By emailLocator = By.cssSelector("#Email");
-   By passwordLocator = By.cssSelector("#Password");
+   static By emailLocator = By.cssSelector("#Email");
+   static By passwordLocator = By.cssSelector("#Password");
 
 
     public void get(){

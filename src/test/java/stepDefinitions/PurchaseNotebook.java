@@ -6,6 +6,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObjects.LogIn;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,13 +16,10 @@ public class PurchaseNotebook {
 
     @When("Customer clicks Log In")
     public void customer_clicks_log_in() {
-        chrome.findElement(By.cssSelector(".ico-login")).click();
-        chrome.findElement(By.cssSelector("#Email")).sendKeys("jane.doe@yahoo.com");
-        chrome.findElement(By.cssSelector("#Password")).sendKeys("Demoweb123!");
-        chrome.findElement(By.cssSelector("[value = 'Log in']")).click();
+        LogIn.with("leahope@gmail.com", "p@ssword");
     }
 
-    @When("Navigate Computers menu and select Notebooks")
+        @When("Navigate Computers menu and select Notebooks")
     public void navigate_computers_menu_and_select_notebooks() {
         chrome.findElement(By.partialLinkText("Computers")).click();
         chrome.findElement(By.partialLinkText("Notebooks")).click();

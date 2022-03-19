@@ -4,6 +4,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import pageObjects.LogIn;
+
 import static org.openqa.selenium.Keys.ENTER;
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
@@ -21,11 +23,9 @@ public class PurchaseBook {
 
     @Then("Customer enters valid credentials")
     public void customer_enters_valid_credentials() {
-        chrome.findElement(By.cssSelector("#Email")).sendKeys("leahope@gmail.com");
-        chrome.findElement(By.cssSelector("#Password")).sendKeys("p@ssword");
-        chrome.findElement(By.cssSelector(".login-button")).click();
+        LogIn.with("leahope@gmail.com", "p@ssword");
     }
-    @When("Customer searches for book")
+        @When("Customer searches for book")
     public void customer_searches_for_book() {
         chrome.findElement(By.name("q")).sendKeys("book", ENTER);
     }
