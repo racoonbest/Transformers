@@ -13,7 +13,7 @@ public class PurchaseJewelry {
     @When("Clicks on Jewelry menu")
     public void clicks_on_jewelry_menu() {
         chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        chrome.findElement(By.cssSelector("[href$=jewelry]")).click();
+        chrome.findElement(By.cssSelector(".top-menu [href$=jewelry]")).click();
     }
     @Then("Customer able to see jewelry items")
     public void customer_able_to_see_jewelry_items() {

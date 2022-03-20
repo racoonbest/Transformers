@@ -1,18 +1,19 @@
 package stepDefinitions;
 
 import PageObjects.HomePage;
-import PageObjects.LogIn;
+import PageObjects.Login;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.Keys.ENTER;
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseBook {
 
     HomePage demoWebShop;
-    LogIn login;
+    Login login;
 
     @Given("Customer is in home page of DemoWebShop")
     public void customer_is_in_home_page_of_demo_web_shop() {
@@ -22,7 +23,7 @@ public class PurchaseBook {
 
     @When("Customer logs in")
     public void customer_logs_in(){
-        login = new LogIn(chrome);
+        login = new Login(chrome);
         login.launch();
         login.with("leahope@gmail.com", "p@ssword");
     }
@@ -54,22 +55,22 @@ public class PurchaseBook {
     }
 
     @Then("Customer chooses delivery methods")
-    public void customer_chooses_delivery_methods() throws InterruptedException {
+    public void customer_chooses_delivery_methods() {
         chrome.findElement(By.cssSelector("#billing-buttons-container .new-address-next-step-button")).click();
-        Thread.sleep(2000);
-        chrome.findElement(By.cssSelector("#PickUpInStore")).isDisplayed();
-        Thread.sleep(2000);
-        chrome.findElement(By.cssSelector("#PickUpInStore")).click();
-        Thread.sleep(2000);
-        chrome.findElement(By.cssSelector("#shipping-buttons-container .button-1.new-address-next-step-button[value=Continue]")).click();
-        Thread.sleep(2000);
-        chrome.findElement(By.cssSelector(".shipping-method-next-step-button")).click();
-        Thread.sleep(2000);
-        chrome.findElement(By.cssSelector("#paymentmethod_0")).isDisplayed();
-        chrome.findElement(By.cssSelector(".payment-method-next-step-button")).click();
-        Thread.sleep(2000);
-        chrome.findElement(By.cssSelector(".payment-info-next-step-button")).click();
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chrome.findElement(By.cssSelector("#shipping-buttons-container .new-address-next-step-button")).click();
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chrome.findElement(By.cssSelector("#shippingoption_1")).click();
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chrome.findElement(By.cssSelector("#shipping-method-buttons-container .shipping-method-next-step-button")).click();
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chrome.findElement(By.cssSelector("#payment-method-buttons-container .payment-method-next-step-button")).click();
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chrome.findElement(By.cssSelector("#payment-info-buttons-container .payment-info-next-step-button")).click();
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chrome.findElement(By.cssSelector("#confirm-order-buttons-container .confirm-order-next-step-button")).click();
     }
+
 
     @Then("Customer confirms delivery")
     public void customer_confirms_delivery() {

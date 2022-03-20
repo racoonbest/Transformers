@@ -3,7 +3,7 @@ package PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LogIn {
+public class Login {
 
     WebDriver driver;
     String url = "http://demowebshop.tricentis.com/login";
@@ -11,7 +11,7 @@ public class LogIn {
     By passwordLocator = By.cssSelector("#Password");
     By loginBtn = By.cssSelector(".ico-login");
 
-    public LogIn(WebDriver driver){
+    public Login(WebDriver driver){
         this.driver = driver;
     }
 
