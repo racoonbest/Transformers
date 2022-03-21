@@ -25,7 +25,7 @@ public class PurchaseDesktop {
     @When("Customer is on Log in page")
     public void customer_is_on_log_in_page() {
         logIn = new Login(chrome);
-        logIn.get();
+        logIn.launch();
         chrome.manage().window().maximize();
     }
 
@@ -66,7 +66,7 @@ public class PurchaseDesktop {
          chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         String actual = chrome.findElement(By.cssSelector(".bar-notification .content")).getText();
         String expected = "The product has been added to your shopping cart";
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
 
 
     }
