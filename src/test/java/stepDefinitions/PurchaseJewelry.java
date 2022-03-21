@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.assertEquals;
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseJewelry {
@@ -32,5 +34,8 @@ public class PurchaseJewelry {
     }
     @Then("Customer sees verification message")
     public void customer_sees_verification_message(){
+        String expectVerify = "Your order has been successfully processed!";
+        String actualVerify = chrome.findElement(By.cssSelector(".section.order-completed .title")).getText();
+        assertEquals(expectVerify, actualVerify);
     }
 }
