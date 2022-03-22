@@ -14,8 +14,8 @@ public class ChangePassword {
     Login LogIn;
     ChangePasswordPage changePassword;
 
-    @Given("Customer is on Log in page")
-    public void customer_is_on_log_in_page() {
+    @Given("Customer is on Login page")
+    public void customer_is_on_login_page() {
         LogIn = new Login(chrome);
         LogIn.launch();
         chrome.manage().window().maximize();
