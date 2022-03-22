@@ -12,16 +12,16 @@ import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseBook {
 
-    HomePage demoWebShop;
+    HomePage demoWeb;
     Login login;
 
     @Given("Customer is in home page of DemoWebShop")
     public void customer_is_in_home_page_of_demo_web_shop() {
-        demoWebShop = new HomePage(chrome);
-        demoWebShop.launch();
+        demoWeb = new HomePage(chrome);
+        demoWeb.launch();
     }
 
-    @When("Customer logs in")
+    @Then("Customer logs in")
     public void customer_logs_in(){
         login = new Login(chrome);
         login.launch();
@@ -35,6 +35,7 @@ public class PurchaseBook {
 
     @Then("Customer clicks on Add cart button")
     public void customer_clicks_on_add_cart_button() {
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         chrome.findElement(By.cssSelector(".button-1#add-to-cart-button-71")).click();
     }
 
@@ -54,7 +55,7 @@ public class PurchaseBook {
         chrome.findElement(By.cssSelector(".page-title")).isDisplayed();
     }
 
-    @Then("Customer chooses delivery methods")
+    @When("Customer chooses delivery methods")
     public void customer_chooses_delivery_methods() {
         chrome.findElement(By.cssSelector("#billing-buttons-container .new-address-next-step-button")).click();
         chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
