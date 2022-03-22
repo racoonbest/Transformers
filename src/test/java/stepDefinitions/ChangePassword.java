@@ -52,11 +52,4 @@ public class ChangePassword {
         boolean message = chrome.findElement(By.cssSelector(".result")).isDisplayed();
         System.out.println(message);
     }
-
-    @And("Log out and close the window")
-    public void log_out_and_close_the_window() {
-        chrome.findElement(By.cssSelector(".ico-logout")).click();
-        chrome.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        chrome.quit();
-    }
 }

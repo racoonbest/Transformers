@@ -7,4 +7,3 @@ Feature: Change Password Feature
     When Customer clicks Change password in My account
     When Customer changes password
     Then Verify Text: Password was changed
-    And Log out and close the window
