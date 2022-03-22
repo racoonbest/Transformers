@@ -1,11 +1,11 @@
 package stepDefinitions;
 
-import PageObjects.HomePage;
-import PageObjects.Login;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import pageObjects.HomePage;
+import pageObjects.Login;
 import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.Keys.ENTER;
 import static stepDefinitions.TestSuiteSetUp.chrome;
@@ -56,7 +56,7 @@ public class PurchaseBook {
     }
 
     @When("Customer chooses delivery methods")
-    public void customer_chooses_delivery_methods() {
+    public void customer_chooses_delivery_methods()  {
         chrome.findElement(By.cssSelector("#billing-buttons-container .new-address-next-step-button")).click();
         chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         chrome.findElement(By.cssSelector("#shipping-buttons-container .new-address-next-step-button")).click();
@@ -71,7 +71,6 @@ public class PurchaseBook {
         chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         chrome.findElement(By.cssSelector("#confirm-order-buttons-container .confirm-order-next-step-button")).click();
     }
-
 
     @Then("Customer confirms delivery")
     public void customer_confirms_delivery() {

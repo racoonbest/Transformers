@@ -10,6 +10,6 @@
       When Customer opens shopping cart
       Then Customer clicks on Agree and Checkout buttons
       When Customer is in checkout page
-      Then Customer chooses delivery methods
+      When Customer chooses delivery methods
       Then Customer confirms delivery
 
