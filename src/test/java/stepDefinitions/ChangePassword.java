@@ -25,7 +25,7 @@ public class ChangePassword {
 
     @When("Customer enters login credential")
     public void customer_enters_login_credential() {
-        LogIn.with("simba10@gmail.com", "simba11");
+        LogIn.with("simba10@gmail.com", "simba1");
     }
 
     @When("Customer clicks on Email on homepage")
@@ -40,7 +40,7 @@ public class ChangePassword {
 
     @When("Customer changes password")
     public void customer_changes_password() {
-        chrome.findElement(By.cssSelector("#OldPassword")).sendKeys("simba11");
+        chrome.findElement(By.cssSelector("#OldPassword")).sendKeys("simba1");
         chrome.findElement(By.cssSelector("#NewPassword")).sendKeys("simba1");
         chrome.findElement(By.cssSelector("#ConfirmNewPassword")).sendKeys("simba1");
         WebDriverWait wait = new WebDriverWait(chrome, 20);
