@@ -1,10 +1,9 @@
-package PageObjects;
+package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Login {
-
     WebDriver driver;
     String url = "http://demowebshop.tricentis.com/login";
     By emailLocator = By.cssSelector("#Email");
