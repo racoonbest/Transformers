@@ -11,5 +11,7 @@
       Then Customer clicks on Agree and Checkout buttons
       When Customer is in checkout page
       When Customer chooses delivery methods
-      Then Customer confirms delivery
+      When Customer confirms delivery
+      Then Customer sees verification message
+
 

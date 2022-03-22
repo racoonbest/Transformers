@@ -17,11 +17,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
             chrome = new ChromeDriver();
         }
 
-
-//        @After
-//        public void lastStep(){
-//            chrome.quit();
-//        }
+        @After
+        public void lastStep(){
+            chrome.quit();
+        }
     }
 
 
