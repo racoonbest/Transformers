@@ -1,7 +1,7 @@
 Feature: Change Password Feature
   @regression
   Scenario: Verify the customer is able to change their password
-    Given Customer is on Login page
+    Given Customer is on Log in page
     When Customer enters login credential
     When Customer clicks on Email on homepage
     When Customer clicks Change password in My account

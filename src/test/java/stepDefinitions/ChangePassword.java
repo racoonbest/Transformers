@@ -1,23 +1,21 @@
 package stepDefinitions;
 
+import pageObjects.ChangePasswordPage;
 import pageObjects.Login;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.concurrent.TimeUnit;
 
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class ChangePassword {
 
     Login LogIn;
+    ChangePasswordPage changePassword;
 
-    @Given("Customer is on Login page")
-    public void customer_is_on_login_page() {
+    @Given("Customer is on Log in page")
+    public void customer_is_on_log_in_page() {
         LogIn = new Login(chrome);
         LogIn.launch();
         chrome.manage().window().maximize();
@@ -40,11 +38,8 @@ public class ChangePassword {
 
     @When("Customer changes password")
     public void customer_changes_password() {
-        chrome.findElement(By.cssSelector("#OldPassword")).sendKeys("simba1");
-        chrome.findElement(By.cssSelector("#NewPassword")).sendKeys("simba1");
-        chrome.findElement(By.cssSelector("#ConfirmNewPassword")).sendKeys("simba1");
-        WebDriverWait wait = new WebDriverWait(chrome, 20);
-        chrome.findElement(By.cssSelector("[value = 'Change password']")).click();
+        changePassword = new ChangePasswordPage();
+        changePassword.changePass("simba10@gmail.com", "simba1", "simba1");
     }
 
     @Then("Verify Text: Password was changed")
