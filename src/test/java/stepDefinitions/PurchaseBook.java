@@ -4,14 +4,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import pageObjects.HomePage;
-import pageObjects.Login;
+import PageObjects.HomePage;
+import PageObjects.Login;
 import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.Keys.ENTER;
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseBook {
-
     HomePage demoWeb;
     Login login;
 
