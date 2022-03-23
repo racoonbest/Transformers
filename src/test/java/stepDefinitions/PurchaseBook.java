@@ -44,12 +44,12 @@ public class PurchaseBook {
 
     @When("Customer opens shopping cart")
     public void customer_opens_shopping_cart() {
-        chrome.findElement(By.cssSelector(".ico-cart .cart-label")).click();
+        click = new ShoppingCart(chrome);
+        click.openCart();
     }
 
     @Then("Customer clicks on Agree and Checkout buttons")
     public void customer_clicks_on_agree_and_checkout_buttons() {
-       click = new ShoppingCart(chrome);
        click.checkOut();
            }
 

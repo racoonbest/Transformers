@@ -15,7 +15,7 @@ public class OrderStatus {
 
     @Then("Customer verifies order status")
     public void customer_verifies_order_status() {
-        String expOrderNum = "Order Number";
+        String expOrderNum = "Order Status: Pending";
         String actOrderNum = chrome.findElement(By.cssSelector(".order-details span:nth-child(2)")).getText();
         assertEquals(expOrderNum,actOrderNum);
     }
