@@ -13,10 +13,7 @@ Feature: Check the order status
     And Customer chooses delivery methods
     And Customer confirms delivery
     Then Customer sees verification message
-
-    When Customer clicks on username
-    When Customer opens orders list
-    And Searches for order by number
+    When Customer clicks on order details
     Then Customer verifies order status
 
 
