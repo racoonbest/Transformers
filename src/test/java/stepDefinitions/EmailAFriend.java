@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import pageObjects.HomePage;
 import pageObjects.Login;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -10,19 +11,19 @@ import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class EmailAFriend {
 
-    Login LogIn;
+    Login LogIn = new Login(chrome);;
+    HomePage home = new HomePage(chrome);
 
     @When("Customer logs in to the website")
     public void customer_logs_in_to_the_website() {
-        LogIn = new Login(chrome);
+
         LogIn.launch();
         LogIn.with("jane.doe@yahoo.com", "Demoweb123!");
     }
 
     @When("Enter book to search")
     public void enter_book_to_search() {
-        chrome.findElement(By.name("q")).sendKeys("book");
-        chrome.findElement(By.cssSelector(".search-box-button")).click();
+        home.search("book");
     }
 
     @And("Clicks the health book item")
