@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default Suite">
+    <test thread-count="5" name="batch2">
+        <classes>
+            <class name="utility.CucumberRunner"/>
+        </classes>
+    </test> <!-- batch2 -->
+</suite> <!-- Default Suite -->
+
+
+
+
+<!--        <?xml version="1.0" encoding="UTF-8"?>-->
+<!--        <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">-->
+<!--<suite name="Testng Cucumber Suite" parallel="tests">-->
+<!--<test name="Run All Tests">-->
+<!--    <classes>-->
+<!--        <class name="utility.CucumberRunner"></class>-->
+<!--        &lt;!&ndash; <class name="main.AnotherRunner"></class> This class could be used to run multiple runner classes&ndash;&gt;-->
+<!--    </classes>-->
+
+<!--</test> &lt;!&ndash; Test &ndash;&gt;-->
+<!--</suite> &lt;!&ndash; Suite &ndash;&gt;-->
