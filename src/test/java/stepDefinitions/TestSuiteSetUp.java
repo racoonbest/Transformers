@@ -1,20 +1,24 @@
 package stepDefinitions;
 
-
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import io.cucumber.java.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
-    public class TestSuiteSetUp {
+public class TestSuiteSetUp {
 
         public static WebDriver chrome;
+        WebDriver fireFox;
 
         @Before
         public void setupSuite(){
-            WebDriverManager.chromedriver().setup();
+            System.setProperty("webdriver.chrome.driver", "src\\test\\drivers\\chromedriver.exe");
+          //  System.setProperty("webdriver.gecko.driver", "src\\test\\drivers\\geckodriver.exe");
+            //WebDriverManager.chromedriver().setup();
             chrome = new ChromeDriver();
+           // chrome = new FirefoxDriver();
+            //fireFox = new FirefoxDriver();
         }
 
 
