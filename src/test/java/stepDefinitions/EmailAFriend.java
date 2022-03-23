@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
 
+import static org.junit.Assert.assertEquals;
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class EmailAFriend {
@@ -46,7 +47,8 @@ public class EmailAFriend {
 
     @Then("Verify text: Your message has been sent.")
     public void verify_text_your_message_has_been_sent() {
-        boolean message = chrome.findElement(By.cssSelector(".result")).isDisplayed();
-        System.out.println(message);
+        String actual = chrome.findElement(By.cssSelector(".result")).getText();
+        String expect = "Your message has been sent.";
+        assertEquals(actual, expect);
     }
 }
