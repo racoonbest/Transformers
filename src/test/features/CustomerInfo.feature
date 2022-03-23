@@ -4,4 +4,5 @@ Feature: Customer info
     Given Customer is on Login page
     When Customer enters login credential
     When Customer changes info under my account
+    Then Customer info should get updated
 

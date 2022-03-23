@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.commons.lang3.RandomStringUtils;
 import pageObjects.ChangeInfoPage;
@@ -9,13 +10,14 @@ import pageObjects.Login;
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class CustomerInfo {
-    Login logIn;
-    ChangeInfoPage changeInfo;
+    Login logIn = new Login(chrome);
+    ChangeInfoPage changeInfo= new ChangeInfoPage();
+    String fName;
+    String lName;
 
 
     @Given("Customer is on Login page")
     public void customer_is_on_login_page() {
-        logIn = new Login(chrome);
         logIn.launch();
         chrome.manage().window().maximize();
     }
@@ -29,10 +31,13 @@ public class CustomerInfo {
 
     @When("Customer changes info under my account")
     public void customer_changes_info_under_my_account() {
-        changeInfo= new ChangeInfoPage();
-        changeInfo.personalDetails(RandomStringUtils.randomAlphabetic(5),
-                RandomStringUtils.randomAlphabetic(5), "simba10@gmail.com");
+        fName = RandomStringUtils.randomAlphabetic(5);
+        lName = RandomStringUtils.randomAlphabetic(5);
+        changeInfo.personalDetails(fName, lName, "simba10@gmail.com");
+    }
 
+    @Then("Customer info should get updated")
+    public void customer_info_should_get_updated() {
 
     }
 

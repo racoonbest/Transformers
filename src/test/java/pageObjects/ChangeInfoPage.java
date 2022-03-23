@@ -14,18 +14,19 @@ public class ChangeInfoPage {
     By firstName = By.cssSelector("#FirstName");
     By lastName = By.cssSelector("#LastName");
     By newEmail = By.cssSelector("#Email");
+    By save = By.cssSelector(".save-customer-info-button");
 
 
-    public void personalDetails(String firstN, String lastN, String email){
+    public void personalDetails(String firstN, String lastN, String email) {
         chrome.findElement(clickAccount).click();
         chrome.findElement(gender).click();
-        chrome.findElement(By.cssSelector("#FirstName")).sendKeys(Keys.CONTROL+ "a" ,Keys.BACK_SPACE);
+        chrome.findElement(firstName).clear();
         chrome.findElement(firstName).sendKeys(firstN);
-        chrome.findElement(By.cssSelector("#LastName")).sendKeys(Keys.CONTROL+ "a" ,Keys.BACK_SPACE);
-        chrome.findElement(lastName).sendKeys(Keys.BACK_SPACE,lastN);
-        chrome.findElement(By.cssSelector("#Email")).sendKeys(Keys.CONTROL+ "a" ,Keys.BACK_SPACE);
-        chrome.findElement(newEmail).sendKeys(Keys.BACK_SPACE,email);
-        chrome.findElement(By.cssSelector(".save-customer-info-button")).click();
+        chrome.findElement(lastName).clear();
+        chrome.findElement(lastName).sendKeys(lastN);
+        chrome.findElement(newEmail).clear();
+        chrome.findElement(newEmail).sendKeys(email);
+        chrome.findElement(save).click();
 
     }
 }
