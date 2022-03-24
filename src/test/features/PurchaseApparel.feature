@@ -9,10 +9,12 @@ Feature: Apparel purchase
     When Customer clicks on Apparel&Shoes menu
     Then Customer is able to navigate menu items
     Then Customer finds an item to be purchased
-    Then Customer clicks on Add cart button
+    When Customer clicks on Add cart button
     When Customer opens shopping cart
     When Customer clicks on Agree and Checkout buttons
-    When Customer is in checkout page
+    Then Customer is in checkout page
     When Customer chooses delivery methods
-    Then Customer confirms delivery
+    When Customer confirms delivery
+    Then Customer sees verification message
+
 
