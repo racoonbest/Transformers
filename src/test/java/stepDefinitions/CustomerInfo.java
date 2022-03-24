@@ -48,10 +48,9 @@ public class CustomerInfo {
 
     @Then("Customer info should get updated")
     public void customer_info_should_get_updated() {
-       String actual = chrome.findElement(By.cssSelector("#LastName")).getAttribute("value");
-        System.out.println(actual);
+        String actual = chrome.findElement(By.cssSelector("#LastName")).getAttribute("value");
         String expected = lName;
-        assertEquals(expected, actual );
+        assertEquals(expected, actual);
 
 
     }
