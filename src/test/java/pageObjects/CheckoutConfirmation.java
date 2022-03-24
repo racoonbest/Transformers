@@ -17,7 +17,7 @@ public class CheckoutConfirmation {
     By checkoutSeven = By.cssSelector("#confirm-order-buttons-container .confirm-order-next-step-button");
     By confirmButton = By.cssSelector(".confirm-order-next-step-button");
     By checkoutTitle = By.cssSelector(".page-title");
-    
+
     public CheckoutConfirmation(WebDriver driver) {
         this.driver = driver;
     }
