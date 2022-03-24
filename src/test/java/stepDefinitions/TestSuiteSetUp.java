@@ -18,7 +18,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
         }
 
 
-       @After
+
+      
+
+        @After
         public void lastStep(){
             chrome.quit();
         }
