@@ -25,3 +25,4 @@ public class Login {
         driver.findElement(passwordLocator).submit();
     }
 }
+

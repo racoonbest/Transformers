@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import pageObjects.EmailAFriendPage;
 import pageObjects.HomePage;
 import pageObjects.Login;
 import io.cucumber.java.en.And;
@@ -14,6 +15,7 @@ public class EmailAFriend {
 
     Login LogIn = new Login(chrome);;
     HomePage home = new HomePage(chrome);
+    EmailAFriendPage emailAFriend = new EmailAFriendPage();
 
     @When("Customer logs in to the website")
     public void customer_logs_in_to_the_website() {
@@ -27,22 +29,10 @@ public class EmailAFriend {
         home.search("book");
     }
 
-    @And("Clicks the health book item")
-    public void clicks_the_health_book_item() {
-        chrome.findElement(By.partialLinkText("Health Book")).click();
-    }
+    @When("Customer Emails a friend")
+    public void customer_emails_a_friend() {
+        emailAFriend.personalDetails("hellofriend@gmail.com","you can try if you like buy me one!");
 
-    @When("Clicks email a friend button")
-    public void clicks_email_a_friend_button() {
-        chrome.findElement(By.cssSelector("[value = 'Email a friend']")).click();
-    }
-
-    @And("Fills out the blanks and click send email button")
-    public void fills_out_the_blanks_and_click_send_email_button() {
-        chrome.findElement(By.cssSelector(".friend-email")).sendKeys("johndoe13@gmail.com"); // Friend's email
-        chrome.findElement(By.cssSelector(".personal-message"))
-                .sendKeys("I strongly recommend this book for your health!"); // enter message
-        chrome.findElement(By.name("send-email")).click(); // click send email button
     }
 
     @Then("Verify text: Your message has been sent.")
