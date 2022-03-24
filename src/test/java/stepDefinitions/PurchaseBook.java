@@ -4,15 +4,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.*;
-import static stepDefinitions.TestSuiteSetUp.chrome;
+import static stepDefinitions.TestSuiteSetUp.driver;
 
 public class PurchaseBook {
 
-    HomePage demoWeb = new HomePage(chrome);
-    Login login=new Login(chrome);
-    AddCart button = new AddCart(chrome);
-    ShoppingCart click = new ShoppingCart(chrome);
-    CheckoutConfirmation continues = new CheckoutConfirmation(chrome);
+    HomePage demoWeb = new HomePage(driver);
+    Login login=new Login(driver);
+    AddCart button = new AddCart(driver);
+    ShoppingCart click = new ShoppingCart(driver);
+    CheckoutConfirmation continues = new CheckoutConfirmation(driver);
 
 
     @Given("Customer is in home page of DemoWebShop")

@@ -5,12 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import static org.openqa.selenium.Keys.ENTER;
-import static stepDefinitions.TestSuiteSetUp.chrome;
+import static stepDefinitions.TestSuiteSetUp.driver;
 
 public class HomePage {
 
     WebDriver driver;
     String url = "http://demowebshop.tricentis.com/";
+    By apparelShoes = By.cssSelector(".top-menu [href*=apparel-shoes]");
 
 
     public HomePage(WebDriver driver) {
@@ -22,6 +23,11 @@ public class HomePage {
     }
 
     public void searchFor(String product){
-        chrome.findElement(By.name("q")).sendKeys((product), ENTER);
+        driver.findElement(By.name("q")).sendKeys((product), ENTER);
+    }
+
+    public void apparelBar(){
+        driver.findElement(apparelShoes).click();
+
     }
 }

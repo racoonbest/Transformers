@@ -9,17 +9,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
     public class TestSuiteSetUp {
 
-        public static WebDriver chrome;
+        public static WebDriver driver;
 
         @Before
         public void setupSuite(){
             WebDriverManager.chromedriver().setup();
-            chrome = new ChromeDriver();
+            driver = new ChromeDriver();
         }
 
         @After
         public void lastStep(){
-            chrome.quit();
+            driver.quit();
         }
     }
 

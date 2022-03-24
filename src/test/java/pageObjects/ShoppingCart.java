@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
-import static stepDefinitions.TestSuiteSetUp.chrome;
+import static stepDefinitions.TestSuiteSetUp.driver;
 
 public class ShoppingCart {
 
@@ -20,18 +20,18 @@ public class ShoppingCart {
     }
 
     public void openCart(){
-        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        chrome.findElement(clickCart).click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.findElement(clickCart).click();
     }
 
     public void checkOut(){
-        chrome.findElement(agreeBox).click();
-        chrome.findElement(takeMeCart).click();
+        driver.findElement(agreeBox).click();
+        driver.findElement(takeMeCart).click();
     }
 
     public void verification(){
         String expected = "Your order has been successfully processed!";
-        String actual = chrome.findElement(By.cssSelector(".section.order-completed .title")).getText();
+        String actual = driver.findElement(By.cssSelector(".section.order-completed .title")).getText();
         assertEquals(expected, actual);
     }
 }

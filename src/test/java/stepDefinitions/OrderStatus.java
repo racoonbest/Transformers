@@ -6,11 +6,11 @@ import org.openqa.selenium.By;
 import pageObjects.CheckoutConfirmation;
 
 import static org.junit.Assert.assertEquals;
-import static stepDefinitions.TestSuiteSetUp.chrome;
+import static stepDefinitions.TestSuiteSetUp.driver;
 
 public class OrderStatus {
 
-    CheckoutConfirmation click, verify;
+    CheckoutConfirmation click = new CheckoutConfirmation(driver);
 
     @When("Customer clicks on order details")
     public void customer_clicks_on_order_details() {
@@ -19,6 +19,6 @@ public class OrderStatus {
 
     @Then("Customer verifies order status")
     public void customer_verifies_order_status() {
-       verify.orderStatus();
+       click.orderStatus();
     }
 }
