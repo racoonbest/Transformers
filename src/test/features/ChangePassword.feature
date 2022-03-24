@@ -1,5 +1,5 @@
 Feature: Change Password Feature
-  @regression
+  @regression @password
   Scenario: Verify the customer is able to change their password
     Given Customer is on Login page
     When Customer enters login credential
