@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import pageObjects.ChangePasswordPage;
+import pageObjects.HomePage;
 import pageObjects.Login;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,7 +14,8 @@ import static stepDefinitions.TestSuiteSetUp.chrome;
 public class ChangePassword {
 
     Login LogIn = new Login(chrome);
-    ChangePasswordPage changePassword;
+    ChangePasswordPage changePassword = new ChangePasswordPage();
+    HomePage home = new HomePage(chrome);
 
     @Given("Customer is on Login page")
     public void customer_is_on_login_page() {
@@ -28,12 +30,12 @@ public class ChangePassword {
 
     @When("Customer clicks on Email on homepage")
     public void customer_clicks_on_email_on_homepage() {
-        chrome.findElement(By.cssSelector(".account")).click();
+        home.emailAddress();
     }
 
     @When("Customer clicks Change password in My account")
     public void customer_clicks_change_password_in_my_account() {
-        chrome.findElement(By.partialLinkText("Change password")).click();
+        changePassword.changeLink();
     }
 
     @When("Customer changes password")
