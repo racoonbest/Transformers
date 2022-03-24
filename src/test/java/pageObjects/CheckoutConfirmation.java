@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
+import static org.junit.Assert.assertEquals;
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class CheckoutConfirmation {
@@ -16,14 +17,17 @@ public class CheckoutConfirmation {
     By checkoutSix = By.cssSelector("#payment-info-buttons-container .payment-info-next-step-button");
     By checkoutSeven = By.cssSelector("#confirm-order-buttons-container .confirm-order-next-step-button");
     By confirmButton = By.cssSelector(".confirm-order-next-step-button");
-    By checkoutTitle = By.cssSelector(".page-title");
+    By details = By.cssSelector(".details [href*=orderdetails]");
+
 
     public CheckoutConfirmation(WebDriver driver) {
         this.driver = driver;
     }
 
     public void pageTitle(){
-        chrome.findElement(checkoutTitle).isDisplayed();
+        String expTitle = "Checkout";
+        String actTitle = chrome.findElement(By.cssSelector(".page-title")).getText();
+        assertEquals(expTitle,actTitle);
     }
 
     public void checkOutSteps(){
@@ -40,5 +44,15 @@ public class CheckoutConfirmation {
     public void confirmButton(){
         chrome.findElement(confirmButton).click();
 
+    }
+
+    public void orderDetails(){
+        chrome.findElement(details);
+    }
+
+    public void orderStatus(){
+        String expOrderNum = "Order Status: Pending";
+        String actOrderNum = chrome.findElement(By.cssSelector(".order-details span:nth-child(2)")).getText();
+        assertEquals(expOrderNum,actOrderNum);
     }
 }

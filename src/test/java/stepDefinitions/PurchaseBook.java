@@ -3,59 +3,49 @@ package stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-import pageObjects.CheckoutConfirmation;
-import pageObjects.HomePage;
-import pageObjects.Login;
-import pageObjects.ShoppingCart;
-import java.util.concurrent.TimeUnit;
-import static org.openqa.selenium.Keys.ENTER;
+import pageObjects.*;
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseBook {
 
-    HomePage demoWeb;
-    Login login;
-    ShoppingCart click;
-    CheckoutConfirmation continues;
+    HomePage demoWeb = new HomePage(chrome);
+    Login login=new Login(chrome);
+    AddCart button = new AddCart(chrome);
+    ShoppingCart click = new ShoppingCart(chrome);
+    CheckoutConfirmation continues = new CheckoutConfirmation(chrome);
+
 
     @Given("Customer is in home page of DemoWebShop")
     public void customer_is_in_home_page_of_demo_web_shop() {
-        demoWeb = new HomePage(chrome);
         demoWeb.launch();
     }
 
     @When("Customer logs in")
     public void customer_logs_in() {
-        login=new Login(chrome);
         login.launch();
         login.with("leahope@gmail.com", "p@ssword");
         }
     @When("Customer searches for book")
     public void customer_searches_for_book() {
-        chrome.findElement(By.name("q")).sendKeys("book", ENTER);
-    }
+        demoWeb.searchFor("book"); }
 
     @Then("Customer clicks on Add cart button")
     public void customer_clicks_on_add_cart_button() {
-        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        chrome.findElement(By.cssSelector(".button-2.product-box-add-to-cart-button")).click();
-    }
+        button.addMeCart();
+           }
 
     @When("Customer opens shopping cart")
     public void customer_opens_shopping_cart() {
-        click = new ShoppingCart(chrome);
         click.openCart();
     }
 
-    @Then("Customer clicks on Agree and Checkout buttons")
+    @When("Customer clicks on Agree and Checkout buttons")
     public void customer_clicks_on_agree_and_checkout_buttons() {
        click.checkOut();
            }
 
-    @When("Customer is in checkout page")
+    @Then("Customer is in checkout page")
     public void customer_is_in_checkout_page() {
-        continues = new CheckoutConfirmation(chrome);
         continues.pageTitle();
     }
 
@@ -71,5 +61,6 @@ public class PurchaseBook {
 
     @Then("Customer sees verification message")
     public void customer_sees_verification_message(){
+       click.verification();
     }
 }
