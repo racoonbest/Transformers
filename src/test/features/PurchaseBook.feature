@@ -2,6 +2,7 @@
 
   Feature: Book purchase
 
+    @regression
     Scenario: Customer is able to purchases a book successfully
       Given Customer is in home page of DemoWebShop
       When Customer logs in
