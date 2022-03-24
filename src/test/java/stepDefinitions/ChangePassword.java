@@ -7,16 +7,16 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
 
+import static org.junit.Assert.assertEquals;
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class ChangePassword {
 
-    Login LogIn;
+    Login LogIn = new Login(chrome);
     ChangePasswordPage changePassword;
 
     @Given("Customer is on Login page")
     public void customer_is_on_login_page() {
-        LogIn = new Login(chrome);
         LogIn.launch();
         chrome.manage().window().maximize();
     }
@@ -44,7 +44,8 @@ public class ChangePassword {
 
     @Then("Verify Text: Password was changed")
     public void verify_text_password_was_changed() {
-        boolean message = chrome.findElement(By.cssSelector(".result")).isDisplayed();
-        System.out.println(message);
+        String actual = chrome.findElement(By.cssSelector(".result")).getText();
+        String expect = "Password was changed";
+        assertEquals(actual, expect);
     }
 }
