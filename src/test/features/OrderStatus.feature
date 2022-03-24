@@ -6,12 +6,12 @@ Feature: Check the order status
     Given Customer is in home page of DemoWebShop
     When Customer logs in
     When Customer searches for book
-    When Customer clicks on Add cart button
+    Then Customer clicks on Add cart button
     When Customer opens shopping cart
-    And Customer clicks on Agree and Checkout buttons
-    And Customer is in checkout page
-    And Customer chooses delivery methods
-    And Customer confirms delivery
+    Then Customer clicks on Agree and Checkout buttons
+    When Customer is in checkout page
+    When Customer chooses delivery methods
+    When Customer confirms delivery
     Then Customer sees verification message
     When Customer clicks on order details
     Then Customer verifies order status

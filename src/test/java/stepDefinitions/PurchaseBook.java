@@ -25,7 +25,7 @@ public class PurchaseBook {
         demoWeb.launch();
     }
 
-    @Then("Customer logs in")
+    @When("Customer logs in")
     public void customer_logs_in() {
         login=new Login(chrome);
         login.launch();
@@ -56,7 +56,7 @@ public class PurchaseBook {
     @When("Customer is in checkout page")
     public void customer_is_in_checkout_page() {
         continues = new CheckoutConfirmation(chrome);
-        continues.isVisible();
+        continues.pageTitle();
     }
 
     @When("Customer chooses delivery methods")
@@ -64,7 +64,7 @@ public class PurchaseBook {
         continues.checkOutSteps();
             }
 
-    @Then("Customer confirms delivery")
+    @When("Customer confirms delivery")
     public void customer_confirms_delivery() {
         continues.confirmButton();
     }
