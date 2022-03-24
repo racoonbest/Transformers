@@ -6,7 +6,7 @@ Feature: Apparel purchase
 
     Given Customer is in home page of DemoWebShop
     When Customer logs in
-    When Customer clicks on Apparel&Shoes menu
+    When Customer clicks on Apparel and Shoes menu
     Then Customer is able to navigate menu items
     Then Customer finds an item to be purchased
     When Customer clicks on Add cart button

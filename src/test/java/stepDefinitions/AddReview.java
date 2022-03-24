@@ -22,11 +22,11 @@ public class AddReview {
         chrome.findElement(By.cssSelector("[value = 'Search']")).click(); // click Search button
         Thread.sleep(1000);
     }
-
-    @When("Customer clicks the item")
-    public void customer_clicks_the_item() {
-        chrome.findElement(By.cssSelector(".product-title")).click(); // click the item
-    }
+//
+//    @When("Customer clicks the item")
+//    public void customer_clicks_the_item() {
+//        chrome.findElement(By.cssSelector(".product-title")).click(); // click the item
+//    }
 
     @When("Customer clicks Add your review link")
     public void customer_clicks_add_your_review_link() {
