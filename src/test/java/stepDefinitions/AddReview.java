@@ -23,7 +23,7 @@ public class AddReview {
         Thread.sleep(1000);
     }
 
-    @When("Customer clicks the item")
+    @When("Customer clicks the items")
     public void customer_clicks_the_item() {
         chrome.findElement(By.cssSelector(".product-title")).click(); // click the item
     }

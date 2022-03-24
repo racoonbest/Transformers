@@ -15,7 +15,7 @@ import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseNotebook {
 
-    @When("Customer clicks Log In")
+    @When("Customer click Log In")
     public void customer_clicks_log_in() {
         chrome.findElement(By.cssSelector(".ico-login")).click();
         chrome.findElement(By.cssSelector("#Email")).sendKeys("jane.doe@yahoo.com");
