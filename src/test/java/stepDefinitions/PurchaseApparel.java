@@ -3,7 +3,7 @@ package stepDefinitions;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.ApparelShoesPage;
-import pageObjects.HomePage;
+import pageObjects.*;
 import static stepDefinitions.TestSuiteSetUp.driver;
 
 public class PurchaseApparel {

@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
-import static stepDefinitions.TestSuiteSetUp.driver;
 
 public class CheckoutConfirmation {
 
@@ -18,7 +17,7 @@ public class CheckoutConfirmation {
     By checkoutSix = By.cssSelector("#payment-info-buttons-container .payment-info-next-step-button");
     By checkoutSeven = By.cssSelector("#confirm-order-buttons-container .confirm-order-next-step-button");
     By confirmButton = By.cssSelector(".confirm-order-next-step-button");
-    By details = By.cssSelector("[href$=orderdetails]");
+    By details = By.cssSelector("a[href*=orderdetails]");
 
 
     public CheckoutConfirmation(WebDriver driver) {
@@ -48,7 +47,7 @@ public class CheckoutConfirmation {
     }
 
     public void orderDetails(){
-        driver.findElement(details);
+        driver.findElement(details).click();
     }
 
     public void orderStatus(){
