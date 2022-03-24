@@ -19,6 +19,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
         }
 
 
+   
         @After
         public void lastStep(){
             chrome.quit();
@@ -28,3 +29,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 
+      
+
+        @After
+        public void lastStep(){
+            chrome.quit();
+        }
+    }
