@@ -24,16 +24,9 @@ public class PurchaseBook {
         login.launch();
         login.with("leahope@gmail.com", "p@ssword");
     }
-
-<<<<<<< HEAD
     @When("Customer searches for book")
     public void customer_searches_for_book() {
         demoWeb.search("book"); }
-=======
-   // @When("Customer searches for book")
-  //  public void customer_searches_for_book() {
-  //      demoWeb.searchFor("book"); }
->>>>>>> be0e811c67fefd75db3efe5b8945987cedd23f45
 
     @Then("Customer clicks on Add cart button")
     public void customer_clicks_on_add_cart_button() {

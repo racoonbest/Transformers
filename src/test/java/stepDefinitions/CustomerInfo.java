@@ -9,10 +9,10 @@ import pageObjects.ChangeInfoPage;
 import pageObjects.Login;
 
 import static org.junit.Assert.assertEquals;
-import static stepDefinitions.TestSuiteSetUp.chrome;
+import static stepDefinitions.TestSuiteSetUp.driver;
 
 public class CustomerInfo {
-    Login logIn = new Login(chrome);
+    Login logIn = new Login(driver);
     ChangeInfoPage changeInfo= new ChangeInfoPage();
     String fName;
     String lName;
@@ -21,7 +21,7 @@ public class CustomerInfo {
     @Given("Customer is on Login page")
     public void customer_is_on_login_page() {
         logIn.launch();
-        chrome.manage().window().maximize();
+        driver.manage().window().maximize();
 
     }
 
@@ -40,15 +40,15 @@ public class CustomerInfo {
     }
     @When("log out and log in back")
     public void log_out_and_log_in_back() {
-        chrome.findElement(By.cssSelector("a[href='/logout'")).click();
+        driver.findElement(By.cssSelector("a[href='/logout'")).click();
         logIn.with("simba10@gmail.com","simba1");
-        chrome.findElement(By.cssSelector(".account")).click();
+        driver.findElement(By.cssSelector(".account")).click();
 
     }
 
     @Then("Customer info should get updated")
     public void customer_info_should_get_updated() {
-        String actual = chrome.findElement(By.cssSelector("#LastName")).getAttribute("value");
+        String actual = driver.findElement(By.cssSelector("#LastName")).getAttribute("value");
         String expected = lName;
         assertEquals(expected, actual);
 
