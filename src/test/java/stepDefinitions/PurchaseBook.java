@@ -23,7 +23,6 @@ package stepDefinitions; import io.cucumber.java.en.Given; import io.cucumber.ja
 
 
 
-
     @When("Customer opens shopping cart")
     public void customer_opens_shopping_cart() {
         click.openCart(); }
