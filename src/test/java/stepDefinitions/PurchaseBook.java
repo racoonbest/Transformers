@@ -14,7 +14,6 @@ public class PurchaseBook {
     ShoppingCart click = new ShoppingCart(driver);
     CheckoutConfirmation continues = new CheckoutConfirmation(driver);
 
-
     @Given("Customer is in home page of DemoWebShop")
     public void customer_is_in_home_page_of_demo_web_shop() {
         demoWeb.launch();
@@ -24,7 +23,8 @@ public class PurchaseBook {
     public void customer_logs_in() {
         login.launch();
         login.with("leahope@gmail.com", "p@ssword");
-        }
+    }
+
     @When("Customer searches for book")
     public void customer_searches_for_book() {
         demoWeb.searchFor("book"); }
@@ -33,6 +33,7 @@ public class PurchaseBook {
     public void customer_clicks_on_add_cart_button() {
         button.addMeCart();
            }
+
 
     @When("Customer opens shopping cart")
     public void customer_opens_shopping_cart() {
