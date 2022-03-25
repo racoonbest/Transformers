@@ -13,7 +13,7 @@ import static stepDefinitions.TestSuiteSetUp.chrome;
 /*
 public class PurchaseNotebook {
 
-    @When("Customer clicks Log In")
+    @When("Customer click Log In")
     public void customer_clicks_log_in() {
         chrome.findElement(By.cssSelector(".ico-login")).click();
         chrome.findElement(By.cssSelector("#Email")).sendKeys("jane.doe@yahoo.com");
@@ -46,6 +46,7 @@ public class PurchaseNotebook {
     @When("Fill out Estimated Shipping information")
     public void fill_out_estimated_shipping_information() {
 
+
         Select country = new Select(chrome.findElement(By.cssSelector("#CountryId")));
         country.selectByVisibleText("United States");
         Select state = new Select(chrome.findElement(By.cssSelector("#StateProvinceId")));
@@ -56,6 +57,7 @@ public class PurchaseNotebook {
 
     @When("Customer clicks on Agree and Checkout buttons")
     public void customer_clicks_on_agree_and_checkout_buttons() {
+
         chrome.findElement(By.cssSelector("#termsofservice")).click(); // click the agreement checkbox
         chrome.findElement(By.cssSelector("#checkout")).click(); // click checkout button
     }
@@ -94,6 +96,7 @@ public class PurchaseNotebook {
 
     @When("Verify email address")
     public void verify_email_address() {
+
         boolean isDisplayed = chrome.findElement(By.cssSelector(".email")).isDisplayed();
         System.out.println(isDisplayed);
 
@@ -103,12 +106,14 @@ public class PurchaseNotebook {
 
     @Then("Verify text: Your order has been successfully processed!")
     public void verify_text_your_order_has_been_successfully_processed() {
+
         boolean isDisplayed = chrome.findElement(By.cssSelector(".title")).isDisplayed();
         System.out.println(isDisplayed);
     }
 
     @When("Click \"Click here for order details.\" link")
     public void click_click_here_for_order_details_link() {
+
         chrome.findElement(By.linkText("Click here for order details.")).click();
         boolean orderNum = chrome.findElement(By.cssSelector(".order-overview .order-number")).isDisplayed();
         System.out.println(orderNum);
