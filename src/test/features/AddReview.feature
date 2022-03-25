@@ -1,7 +1,7 @@
 Feature: Add a Review
   @regression @review
   Scenario: Verify only registered customer can leave a review
-    Given Customer is on DemoShop home page
+    Given Customer is in home page of DemoWebShop
     When Customer searches for Health Book
     When Customer clicks the item
     When Customer clicks Add your review link

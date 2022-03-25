@@ -27,7 +27,7 @@ public class PurchaseBook {
 
     @When("Customer searches for book")
     public void customer_searches_for_book() {
-        demoWeb.searchFor("book"); }
+        demoWeb.search("book"); }
 
     @Then("Customer clicks on Add cart button")
     public void customer_clicks_on_add_cart_button() {
