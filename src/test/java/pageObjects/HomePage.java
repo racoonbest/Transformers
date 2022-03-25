@@ -12,6 +12,7 @@ public class HomePage {
     @FindBy(css = ".account") // click email address on the main page
     WebElement email;
 
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
