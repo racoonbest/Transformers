@@ -20,9 +20,12 @@ public class HomePage {
     WebElement search;
 
 
-
     @FindBy(css = ".account") // click email address on the main page
     WebElement email;
+
+    @FindBy(css = "a[href='/digital-downloads'")
+    WebElement digitalDownloads;
+
 
     By quantity = By.cssSelector(".ico-cart .cart-qty");
 
@@ -52,6 +55,10 @@ public class HomePage {
 
     public By getQuantity() {
         return quantity;
+    }
+
+    public void goToDigitalDownloads(){
+        digitalDownloads.click();
     }
 
 }

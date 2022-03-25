@@ -3,16 +3,22 @@ package stepDefinitions;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import pageObjects.HomePage;
 
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 import static stepDefinitions.TestSuiteSetUp.driver;
 
+
+
 public class DigitalDownloads {
+
+    HomePage home = new HomePage(driver);
+
     @When("Customer clicks on Digital Downloads")
     public void customer_clicks_on_digital_downloads() {
-        driver.findElement(By.cssSelector("a[href='/digital-downloads'")).click();
+        home.goToDigitalDownloads();
 
     }
     @When("Customer Adds 3rd Album to Cart")
@@ -30,7 +36,6 @@ public class DigitalDownloads {
        driver.findElement(By.cssSelector("#payment-method-buttons-container .payment-method-next-step-button")).click();
        driver.findElement(By.cssSelector("#payment-info-buttons-container .payment-info-next-step-button")).click();
         driver.findElement(By.cssSelector("#confirm-order-buttons-container .confirm-order-next-step-button")).click();
-        Thread.sleep(4000);
     }
 
 }
