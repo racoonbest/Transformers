@@ -17,21 +17,21 @@ public class ChangePassword {
     ChangePasswordPage changePassword = new ChangePasswordPage();
     HomePage home = new HomePage(chrome);
 
-    @Given("Customer is on Login page")
-    public void customer_is_on_login_page() {
-        LogIn.launch();
-        chrome.manage().window().maximize();
-    }
+//    @Given("Customer is on Login page")
+//    public void customer_is_on_login_page() {
+//        LogIn.launch();
+//        chrome.manage().window().maximize();
+ //   }
 
     @When("Customer enters login credential")
     public void customer_enters_login_credential() {
         LogIn.with("simba10@gmail.com", "simba1");
     }
 
-    @When("Customer clicks on Email on homepage")
-    public void customer_clicks_on_email_on_homepage() {
-        home.emailAddress();
-    }
+   // @When("Customer clicks on Email on homepage")
+   // public void customer_clicks_on_email_on_homepage() {
+     //   home.emailAddress();
+  //  }
 
     @When("Customer clicks Change password in My account")
     public void customer_clicks_change_password_in_my_account() {
