@@ -15,10 +15,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
         public void setupSuite(){
             WebDriverManager.chromedriver().setup();
 //            System.setProperty("webdriver.chrome.driver", "src/test/drivers/chromedriver");
-            chrome = new ChromeDriver();
+            driver = new ChromeDriver();
         }
-   
-        public void tearDown(){
-            chrome.quit();
+
+        @After
+        public void lastStep(){
+            driver.quit();
         }
     }
