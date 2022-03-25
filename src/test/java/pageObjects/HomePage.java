@@ -11,9 +11,7 @@ public class HomePage {
     WebDriver driver;
     String url = "http://demowebshop.tricentis.com/";
     By apparelShoes = By.cssSelector(".top-menu [href*=apparel-shoes]");
-
-
-
+    By jewelry = By.cssSelector(".top-menu [href$=jewelry]");
 
     @FindBy(css = ".search-box-button")
     WebElement go;
@@ -45,9 +43,8 @@ public class HomePage {
       go.click();
     }
 
-    public void emailAddress() {
-        email.click();
+    public void jewelryBar(){
+        driver.findElement(jewelry).click();
     }
-
 
 }
