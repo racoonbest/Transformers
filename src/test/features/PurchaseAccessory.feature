@@ -1,7 +1,5 @@
-
-
 Feature: Purchase an Accessory
-  @regression
+  @regression @accessory
   Scenario: Customer is able to purchase accessories
     Given User in DemoShop home page
     When User clicks on log in link

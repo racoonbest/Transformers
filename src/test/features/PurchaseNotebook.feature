@@ -1,5 +1,5 @@
-
 Feature: Purchase a Notebook
+  @regression @notebook
   Scenario: As a customer I should be able to purchase a Notebook
     Given Customer is on DemoShop home page
     When Customer clicks Log In
