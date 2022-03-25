@@ -5,17 +5,20 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
 import static stepDefinitions.TestSuiteSetUp.driver;
 
+
 public class AddReview {
 
     @When("Customer searches for Health Book")
-    public void customer_searches_for_health_book() {
+    public void customer_searches_for_health_book() throws InterruptedException {
         driver.findElement(By.cssSelector("[value = 'Search store']")).sendKeys("health book"); // search health book
-        driver.findElement(By.cssSelector("[value = 'Search']")).click();
+        driver.findElement(By.cssSelector("[value = 'Search']")).click(); // click Search button
+        Thread.sleep(1000);
     }
 
     @When("Customer clicks the items")
     public void customer_clicks_the_item() {
         driver.findElement(By.cssSelector(".product-title")).click();
+
     }
 
     @When("Customer clicks Add your review link")
@@ -28,6 +31,7 @@ public class AddReview {
         boolean isDisplayed = driver.findElement(By.cssSelector(".validation-summary-errors")).isDisplayed();
         System.out.println(isDisplayed);
     }
+
 
     @When("Customer fills out the review form")
     public void customer_fills_out_the_review_form() throws InterruptedException {
