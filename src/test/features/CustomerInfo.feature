@@ -1,5 +1,5 @@
 Feature: Customer info
-  @regression
+  @regression @info
   Scenario: Verify the customer is able to change their info
     Given Customer is on Login page
     When Customer enters login credential
