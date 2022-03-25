@@ -44,5 +44,10 @@ public class HomePage {
     public void search(String product){
     search.sendKeys(product);
       go.click();
-    } 
+    }
+
+    public void emailAddress() {
+    }
+
+
 }

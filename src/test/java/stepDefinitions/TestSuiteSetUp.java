@@ -18,13 +18,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
             chrome = new ChromeDriver();
         }
    
-        @After
-        public void lastStep(){
+        public void tearDown(){
             chrome.quit();
         }
     }
-
-
-
-
-    
