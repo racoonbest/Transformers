@@ -2,9 +2,7 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
 
 import static stepDefinitions.TestSuiteSetUp.chrome;
-
+/*
 public class PurchaseNotebook {
 
     @When("Customer click Log In")
@@ -25,15 +23,8 @@ public class PurchaseNotebook {
 
     @When("Navigate Computers menu and select Notebooks")
     public void navigate_computers_menu_and_select_notebooks() {
-
-//        chrome.findElement(By.name("q")).sendKeys("14.1-inch laptop");
-//        chrome.findElement(By.cssSelector("[value = 'Search']")).click();
-        Actions hoverOver = new Actions(chrome);
-        WebElement com = chrome.findElement(By.linkText("Computers " +
-                "        "));
-        hoverOver.moveToElement(com).perform();
-        chrome.findElement(By.linkText("Notebooks " +
-                "        ")).click(); // select Notebooks
+        chrome.findElement(By.partialLinkText("Computers")).click();
+        chrome.findElement(By.partialLinkText("Notebooks")).click();
     }
 
     @When("Customer clicks the item")
@@ -71,35 +62,34 @@ public class PurchaseNotebook {
 
     @When("Select Billing Address")
     public void select_billing_address() { // select Jane Doe address
-        chrome.findElement(By.cssSelector(".address-select valid")).findElement(By.cssSelector("[value = '2450481']"));
+        chrome.findElement(By.cssSelector("#billing-address-select"))
+                .sendKeys("Jane Doe, 7921 Jones Branch Dr., McLean, Virginia 22102, United States");
         chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        chrome.findElement(By.cssSelector(".button-1 new-address-next-step-button")).click(); // click continue button
+        chrome.findElement(By.cssSelector("[value = 'Continue']")).click(); // click continue button
 
     }
 
     @When("Select Shipping Address and In-store pickup")
     public void select_shipping_address_and_in_store_pickup() { // select Jane Doe address
-        chrome.findElement(By.cssSelector(".address-select valid")).findElement(By.cssSelector("[value = '2450481']"));
-        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chrome.findElement(By.cssSelector("#shipping-address-select"))
+                .sendKeys("Jane Doe, 7921 Jones Branch Dr., McLean, Virginia 22102, United States");
         chrome.findElement(By.cssSelector("#PickUpInStore")).click(); // select In-store Pickup checkbox
-        chrome.findElement(By.cssSelector(".button-1 new-address-next-step-button")).click();
+        chrome.findElement(By.cssSelector("#shipping-buttons-container .new-address-next-step-button")).click();
+        WebDriverWait wait = new WebDriverWait(chrome, 30);
     }
 
     @When("Select Payment Method")
     public void select_payment_method() {
         chrome.findElement(By.cssSelector("#paymentmethod_1")).click(); // select Check / Money Order option
-        chrome.findElement(By.cssSelector(".button-1 payment-method-next-step-button")).click();
+        chrome.findElement(By.cssSelector(".payment-method-next-step-button")).click();
     }
 
     @When("Verify payment information")
     public void verify_payment_information() {
-        String message = chrome.findElement(By.cssSelector(".step a-item")).
-                findElement(By.tagName("b")).getText();
+        boolean isDisplayed = chrome.findElement(By.cssSelector(".info")).isDisplayed();
+        System.out.println(isDisplayed); // verify the info table is available
 
-        boolean isDisplayed = chrome.findElement(By.tagName("b")).isDisplayed();
-        System.out.println(isDisplayed); // verify the name of "Tricentis GmbH"
-
-        chrome.findElement(By.cssSelector(".button-1 payment-info-next-step-button")).click();
+        chrome.findElement(By.cssSelector(".payment-info-next-step-button")).click();
     }
 
     @When("Verify email address")
@@ -107,7 +97,7 @@ public class PurchaseNotebook {
         boolean isDisplayed = chrome.findElement(By.cssSelector(".email")).isDisplayed();
         System.out.println(isDisplayed);
 
-        chrome.findElement(By.cssSelector(".button-1 confirm-order-next-step-button")).click();
+        chrome.findElement(By.cssSelector(".confirm-order-next-step-button")).click();
         WebDriverWait wait = new WebDriverWait(chrome, 30);
     }
 
@@ -120,7 +110,9 @@ public class PurchaseNotebook {
     @When("Click \"Click here for order details.\" link")
     public void click_click_here_for_order_details_link() {
         chrome.findElement(By.linkText("Click here for order details.")).click();
-        WebDriverWait wait = new WebDriverWait(chrome, 50);
+        boolean orderNum = chrome.findElement(By.cssSelector(".order-overview .order-number")).isDisplayed();
+        System.out.println(orderNum);
+        WebDriverWait wait = new WebDriverWait(chrome, 100);
     }
 
     @When("Go back to the previous page and click continue button")
@@ -128,13 +120,14 @@ public class PurchaseNotebook {
         chrome.navigate().back();
         WebDriverWait wait = new WebDriverWait(chrome, 30);
         wait.until(ExpectedConditions.textToBe(By.cssSelector(".page-title"), "Thank you"));
-        chrome.findElement(By.cssSelector(".button-2 order-completed-continue-button")).click();
+        chrome.findElement(By.cssSelector(".order-completed-continue-button")).click();
     }
 
     @Then("Log out and close the browser")
     public void log_out_and_close_the_browser() {
         chrome.findElement(By.cssSelector(".ico-logout")).click(); // log out
-        chrome.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        chrome.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         chrome.quit();
     }
 }
+*/
