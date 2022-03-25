@@ -43,7 +43,7 @@ public class PurchaseBook {
         chrome.findElement(By.cssSelector(".ico-cart .cart-label")).click();
     }
 
-    @Then("Customer clicks on Agree and Checkout buttons")
+    @Then("Customer clicks on Agree and Checkout button")
     public void customer_clicks_on_agree_and_checkout_buttons() {
         chrome.findElement(By.cssSelector("#termsofservice")).click();
         chrome.findElement(By.cssSelector("#checkout, [value=checkout]")).click();
