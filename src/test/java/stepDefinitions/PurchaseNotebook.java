@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
 
 import static stepDefinitions.TestSuiteSetUp.chrome;
-/*
+
 public class PurchaseNotebook {
 
     @When("Customer click Log In")
@@ -130,4 +130,3 @@ public class PurchaseNotebook {
         chrome.quit();
     }
 }
-*/
