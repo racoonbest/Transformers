@@ -6,8 +6,7 @@
       When Customer logs in
       And Clicks on Jewelry menu
       Then Customer able to see jewelry items
-      When Customer chooses create own jewelry
-      And Customer is able to create personalized item
+      When Customer creates personalized jewelry
       When Customer clicks on Add cart button
       When Customer opens shopping cart
       When Customer clicks on Agree and Checkout buttons
