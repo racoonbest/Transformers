@@ -5,10 +5,8 @@ Feature: Add a Review
     When Customer clicks the item
     When Customer clicks Add your review link
     Then Verify text: Only registered users can write reviews
-
     When Customer clicks Log In
     When Customer enters credentials and clicks Log In button
-
     When Customer searches for Health Book
     When Customer clicks the item
     When Customer clicks Add your review link

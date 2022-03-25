@@ -1,6 +1,7 @@
 
 
 Feature: Purchase an Accessory
+  @regression
   Scenario: Customer is able to purchase accessories
     Given User in DemoShop home page
     When User clicks on log in link
@@ -10,7 +11,7 @@ Feature: Purchase an Accessory
     When Go to shopping cart
     When Fill out Estimated Shipping info
     When Click agreement term and click checkout
-    When Fill out checkout steps
+    When User fill outs billing form and clicks continue
     When User selects shipping method and clicks continue
     When User selects payment method
     When User enters payment info and clicks continue
