@@ -2,7 +2,13 @@ package stepDefinitions; import io.cucumber.java.en.Given; import io.cucumber.ja
 
 
 
-    HomePage demoWeb = new HomePage(driver); Login login=new Login(driver); AddCart button = new AddCart(driver); ShoppingCart click = new ShoppingCart(driver); CheckoutConfirmation continues = new CheckoutConfirmation(driver); @Given("Customer is in home page of DemoWebShop")
+    HomePage demoWeb = new HomePage(driver);
+    Login login=new Login(driver);
+    AddCart button = new AddCart(driver);
+    ShoppingCart click = new ShoppingCart(driver);
+    CheckoutConfirmation continues = new CheckoutConfirmation(driver);
+    
+    @Given("Customer is in home page of DemoWebShop")
     public void customer_is_in_home_page_of_demo_web_shop() {
         demoWeb.launch(); }
 
@@ -25,7 +31,9 @@ package stepDefinitions; import io.cucumber.java.en.Given; import io.cucumber.ja
 
     @When("Customer opens shopping cart")
     public void customer_opens_shopping_cart() {
-        click.openCart(); }
+
+        click.openCart();
+    }
 
 
 
