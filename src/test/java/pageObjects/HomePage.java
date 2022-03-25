@@ -22,10 +22,6 @@ public class HomePage {
         driver.get(url);
     }
 
-    public void searchFor(String product){
-        driver.findElement(By.name("q")).sendKeys((product), ENTER);
-    }
-
     public void apparelBar(){
         driver.findElement(apparelShoes).click();
 
