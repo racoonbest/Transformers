@@ -25,10 +25,10 @@ public class CustomerInfo {
 
     }
 
-    @When("Customer enters login credential")
-    public void customer_enters_login_credential() {
-        logIn.with("simba10@gmail.com","simba1");
-    }
+//    @When("Customer enters login credential")
+ //   public void customer_enters_login_credential() {
+//        logIn.with("simba10@gmail.com","simba1");
+ //   }
 
 
 

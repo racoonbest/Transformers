@@ -1,5 +1,9 @@
 Feature: Purchase desktop
+<<<<<<< HEAD
+@regression
+=======
   @regression @desktop
+>>>>>>> 0778a617590e980f5e2542998203e38f5fb39a24
   Scenario:  Customer should be able to purchase a desktop
     Given Customer is in home page of DemoWebShop
     When Customer logs in
