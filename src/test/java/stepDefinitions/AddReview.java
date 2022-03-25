@@ -1,31 +1,21 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
-
 import static stepDefinitions.TestSuiteSetUp.driver;
-
 
 public class AddReview {
 
-    @Given("Customer is on DemoShop home page")
-    public void customer_is_on_demo_shop_home_page() {
-        driver.get("http://demowebshop.tricentis.com/");
-        driver.manage().window().maximize();
-    }
-
     @When("Customer searches for Health Book")
-    public void customer_searches_for_health_book() throws InterruptedException {
+    public void customer_searches_for_health_book() {
         driver.findElement(By.cssSelector("[value = 'Search store']")).sendKeys("health book"); // search health book
-        driver.findElement(By.cssSelector("[value = 'Search']")).click(); // click Search button
-        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("[value = 'Search']")).click();
     }
 
     @When("Customer clicks the items")
     public void customer_clicks_the_item() {
-        driver.findElement(By.cssSelector(".product-title")).click(); // click the item
+        driver.findElement(By.cssSelector(".product-title")).click();
     }
 
     @When("Customer clicks Add your review link")
@@ -37,18 +27,6 @@ public class AddReview {
     public void verify_text_only_registered_users_can_write_reviews() {
         boolean isDisplayed = driver.findElement(By.cssSelector(".validation-summary-errors")).isDisplayed();
         System.out.println(isDisplayed);
-    }
-
-    @When("Customer clicks Log In")
-    public void customer_clicks_log_in() {
-        driver.findElement(By.cssSelector(".ico-login")).click();
-    }
-
-    @When("Customer enters credentials and clicks Log In button")
-    public void customer_enter_credentials_and_clicks_log_in_button() {
-        driver.findElement(By.cssSelector("#Email")).sendKeys("jane.doe@yahoo.com");
-        driver.findElement(By.cssSelector("#Password")).sendKeys("Demoweb123!");
-        driver.findElement(By.cssSelector("[value = 'Log in']")).click();
     }
 
     @When("Customer fills out the review form")
