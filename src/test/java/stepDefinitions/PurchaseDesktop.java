@@ -7,13 +7,15 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import pageObjects.DesktopPage;
 import pageObjects.Login;
 import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 import static stepDefinitions.TestSuiteSetUp.driver;
 
 public class PurchaseDesktop {
-    Login logIn = new Login(driver);;
+    Login logIn = new Login(driver);
+    DesktopPage desktopPage = new DesktopPage();
 
 
     @When("Customer is on Log in page")
@@ -27,33 +29,12 @@ public class PurchaseDesktop {
         logIn.with("simba10@gmail.com","simba1");
     }
 
-    //@Given("Customer is on DemoShop home page")
-    //public void customer_is_on_demo_shop_home_page() {
-      //  driver.get("http://demowebshop.tricentis.com");
-        //driver.manage().window().maximize();
-    //}
-
-    @When("Customer enters desktop to search")
-    public void customer_enters_desktop_to_search() {
-        driver.findElement(By.cssSelector("#small-searchterms")).sendKeys("Computer"+ Keys.ENTER);
+    @When("Customer adds desktop to cart")
+    public void customer_adds_desktop_to_cart() {
+        desktopPage.addToCart("Computer");
 
     }
-    @When("Customer clicks first desktop")
-    public void customer_clicks_first_desktop() {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.findElement(By.cssSelector(".product-grid .product-item .product-title")).click();
-    }
-    @When("Customer fills out own goods")
-    public void customer_fills_out_own_goods() {
-        driver.findElement(By.cssSelector("#product_attribute_72_5_18_65")).click();
-        driver.findElement(By.cssSelector("#product_attribute_72_6_19_55")).click();
-        driver.findElement(By.cssSelector("#product_attribute_72_3_20_58")).click();
-        driver.findElement(By.cssSelector("#product_attribute_72_8_30_94")).click();
-    }
-    @When("Customer clicks on Add to Cart")
-    public void customer_clicks_on_add_to_cart() {
-       driver.findElement(By.cssSelector("#add-to-cart-button-72")).click();
-    }
+
      @Then("Customer sees verify message")
       public void customer_sees_verify_message() {
          driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
