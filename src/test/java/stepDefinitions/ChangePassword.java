@@ -9,29 +9,18 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
 
 import static org.junit.Assert.assertEquals;
-import static stepDefinitions.TestSuiteSetUp.chrome;
+import static stepDefinitions.TestSuiteSetUp.driver;
 
 public class ChangePassword {
 
-    Login LogIn = new Login(chrome);
+    Login LogIn = new Login(driver);
     ChangePasswordPage changePassword = new ChangePasswordPage();
-    HomePage home = new HomePage(chrome);
-
-//    @Given("Customer is on Login page")
-//    public void customer_is_on_login_page() {
-//        LogIn.launch();
-//        chrome.manage().window().maximize();
- //   }
+    HomePage home = new HomePage(driver);
 
     @When("Customer enters login credential")
     public void customer_enters_login_credential() {
         LogIn.with("simba10@gmail.com", "simba1");
     }
-
-   // @When("Customer clicks on Email on homepage")
-   // public void customer_clicks_on_email_on_homepage() {
-     //   home.emailAddress();
-  //  }
 
     @When("Customer clicks Change password in My account")
     public void customer_clicks_change_password_in_my_account() {
@@ -46,7 +35,7 @@ public class ChangePassword {
 
     @Then("Verify Text: Password was changed")
     public void verify_text_password_was_changed() {
-        String actual = chrome.findElement(By.cssSelector(".result")).getText();
+        String actual = driver.findElement(By.cssSelector(".result")).getText();
         String expect = "Password was changed";
         assertEquals(actual, expect);
     }
