@@ -19,12 +19,11 @@ import static org.junit.Assert.assertEquals;
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseDesktop {
-    Login logIn;
+    Login logIn = new Login(chrome);
 
 
     @When("Customer is on Log in page")
     public void customer_is_on_log_in_page() {
-        logIn = new Login(chrome);
         logIn.launch();
         chrome.manage().window().maximize();
     }

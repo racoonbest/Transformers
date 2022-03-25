@@ -1,7 +1,9 @@
+
 Feature: Purchase desktop
+
   Scenario:  Customer should be able to purchase a desktop
-    Given Customer is on Log in page
-    When Customer fills out login form
+    Given Customer is in home page of DemoWebShop
+    When Customer logs in
     When Customer enters desktop to search
     When Customer clicks first desktop
     When Customer fills out own goods
