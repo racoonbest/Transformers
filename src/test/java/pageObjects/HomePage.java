@@ -19,9 +19,12 @@ public class HomePage {
     @FindBy(name = "q")
     WebElement search;
 
+
+
     @FindBy(css = ".account") // click email address on the main page
     WebElement email;
 
+    By quantity = By.cssSelector(".ico-cart .cart-qty");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -45,6 +48,10 @@ public class HomePage {
 
     public void jewelryBar(){
         driver.findElement(jewelry).click();
+    }
+
+    public By getQuantity() {
+        return quantity;
     }
 
 }

@@ -1,4 +1,12 @@
-package stepDefinitions; import io.cucumber.java.en.Given; import io.cucumber.java.en.Then; import io.cucumber.java.en.When; import pageObjects.*; import static stepDefinitions.TestSuiteSetUp.driver; public class PurchaseBook {
+package stepDefinitions; import io.cucumber.java.en.Given; import io.cucumber.java.en.Then; import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObjects.*;
+
+import java.util.concurrent.TimeUnit;
+
+import static stepDefinitions.TestSuiteSetUp.driver; public class PurchaseBook {
 
 
 
@@ -7,7 +15,9 @@ package stepDefinitions; import io.cucumber.java.en.Given; import io.cucumber.ja
     AddCart button = new AddCart(driver);
     ShoppingCart click = new ShoppingCart(driver);
     CheckoutConfirmation continues = new CheckoutConfirmation(driver);
-    
+    WebDriverWait wait = new WebDriverWait(driver, 10);
+
+
     @Given("Customer is in home page of DemoWebShop")
     public void customer_is_in_home_page_of_demo_web_shop() {
         demoWeb.launch(); }
@@ -31,7 +41,7 @@ package stepDefinitions; import io.cucumber.java.en.Given; import io.cucumber.ja
 
     @When("Customer opens shopping cart")
     public void customer_opens_shopping_cart() {
-
+        wait.until(ExpectedConditions.textToBe(demoWeb.getQuantity(),"(1)"));
         click.openCart();
     }
 
