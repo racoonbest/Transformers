@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
     public class TestSuiteSetUp {
 
-        public static WebDriver chrome;
+        public static WebDriver driver;
 
         @Before
         public void setupSuite(){
@@ -17,10 +17,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 //            System.setProperty("webdriver.chrome.driver", "src/test/drivers/chromedriver");
             chrome = new ChromeDriver();
         }
-
-
    
-        @After
         public void tearDown(){
             chrome.quit();
         }
