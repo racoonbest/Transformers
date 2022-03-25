@@ -24,4 +24,9 @@ public class Login {
         driver.findElement(passwordLocator).sendKeys(password);
         driver.findElement(passwordLocator).submit();
     }
+
+    public void clickLogInLink() {
+        driver.findElement(loginBtn).click();
+    }
+
 }
