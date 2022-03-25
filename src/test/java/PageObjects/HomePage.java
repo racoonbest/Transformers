@@ -1,15 +1,10 @@
 package pageObjects;
 
-import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-
-import static org.openqa.selenium.Keys.ENTER;
-import static stepDefinitions.TestSuiteSetUp.driver;
 
 public class HomePage {
 
@@ -25,6 +20,7 @@ public class HomePage {
 
     @FindBy(name = "q")
     WebElement search;
+
 
     public HomePage(WebDriver driver) {
         this.driver = driver;

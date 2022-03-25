@@ -9,10 +9,9 @@ import static stepDefinitions.TestSuiteSetUp.driver;
 public class AddReview {
 
     @When("Customer searches for Health Book")
-    public void customer_searches_for_health_book() throws InterruptedException {
+    public void customer_searches_for_health_book() {
         driver.findElement(By.cssSelector("[value = 'Search store']")).sendKeys("health book"); // search health book
         driver.findElement(By.cssSelector("[value = 'Search']")).click(); // click Search button
-        Thread.sleep(1000);
     }
 
     @When("Customer clicks the items")
