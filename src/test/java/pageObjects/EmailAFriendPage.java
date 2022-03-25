@@ -3,7 +3,7 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static stepDefinitions.TestSuiteSetUp.driver;
+import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class EmailAFriendPage {
 
@@ -16,11 +16,11 @@ public class EmailAFriendPage {
 
 
     public void personalDetails(String friend, String mess){
-        driver.findElement(clickHealthBook).click();
-        driver.findElement(emailAFriend).click();
-        driver.findElement(friendEmail).sendKeys(friend);
-        driver.findElement(message).sendKeys(mess);
-        driver.findElement(sendEmail).click();
+        chrome.findElement(clickHealthBook).click();
+        chrome.findElement(emailAFriend).click();
+        chrome.findElement(friendEmail).sendKeys(friend);
+        chrome.findElement(message).sendKeys(mess);
+        chrome.findElement(sendEmail).click();
 
     }
 }

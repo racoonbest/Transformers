@@ -5,7 +5,7 @@ import org.openqa.selenium.Keys;
 
 import java.security.Key;
 
-import static stepDefinitions.TestSuiteSetUp.driver;
+import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class ChangeInfoPage {
 
@@ -18,15 +18,15 @@ public class ChangeInfoPage {
 
 
     public void personalDetails(String firstN, String lastN, String email) {
-        driver.findElement(clickAccount).click();
-        driver.findElement(gender).click();
-        driver.findElement(firstName).clear();
-        driver.findElement(firstName).sendKeys(firstN);
-        driver.findElement(lastName).clear();
-        driver.findElement(lastName).sendKeys(lastN);
-        driver.findElement(newEmail).clear();
-        driver.findElement(newEmail).sendKeys(email);
-        driver.findElement(save).click();
+        chrome.findElement(clickAccount).click();
+        chrome.findElement(gender).click();
+        chrome.findElement(firstName).clear();
+        chrome.findElement(firstName).sendKeys(firstN);
+        chrome.findElement(lastName).clear();
+        chrome.findElement(lastName).sendKeys(lastN);
+        chrome.findElement(newEmail).clear();
+        chrome.findElement(newEmail).sendKeys(email);
+        chrome.findElement(save).click();
 
     }
 }

@@ -1,7 +1,7 @@
 package pageObjects;
 
-import org.openqa.selenium.*;
-import static stepDefinitions.TestSuiteSetUp.driver;
+import org.openqa.selenium.By;
+import static stepDefinitions.TestSuiteSetUp.chrome;
 
 
 public class ChangePasswordPage {
@@ -13,13 +13,13 @@ public class ChangePasswordPage {
     By confirmPass = By.cssSelector("#ConfirmNewPassword");
 
     public void changeLink () {
-        driver.findElement(changePass).click(); // click change password link
+        chrome.findElement(changePass).click(); // click change password link
     }
 
     public void changePass (String username, String oldPassword, String newPassword){
-        driver.findElement(oldPass).sendKeys(oldPassword);
-        driver.findElement(newPass).sendKeys(newPassword);
-        driver.findElement(confirmPass).sendKeys(newPassword);
-        driver.findElement(By.cssSelector("[value = 'Change password']")).click();
+        chrome.findElement(oldPass).sendKeys(oldPassword);
+        chrome.findElement(newPass).sendKeys(newPassword);
+        chrome.findElement(confirmPass).sendKeys(newPassword);
+        chrome.findElement(By.cssSelector("[value = 'Change password']")).click();
     }
 }

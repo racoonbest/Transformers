@@ -9,12 +9,12 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
 
 import static org.junit.Assert.assertEquals;
-import static stepDefinitions.TestSuiteSetUp.driver;
+import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class EmailAFriend {
 
-    Login LogIn = new Login(driver);;
-    HomePage home = new HomePage(driver);
+    Login LogIn = new Login(chrome);;
+    HomePage home = new HomePage(chrome);
     EmailAFriendPage emailAFriend = new EmailAFriendPage();
 
     @When("Customer logs in to the website")
@@ -37,7 +37,7 @@ public class EmailAFriend {
 
     @Then("Verify text: Your message has been sent.")
     public void verify_text_your_message_has_been_sent() {
-        String actual = driver.findElement(By.cssSelector(".result")).getText();
+        String actual = chrome.findElement(By.cssSelector(".result")).getText();
         String expect = "Your message has been sent.";
         assertEquals(actual, expect);
     }

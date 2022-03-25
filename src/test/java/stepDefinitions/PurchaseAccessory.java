@@ -11,14 +11,14 @@ import pageObjects.Shopping_Cart_Page;
 
 import java.util.concurrent.TimeUnit;
 
-import static stepDefinitions.TestSuiteSetUp.driver;
+import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseAccessory {
 
-    DemoHomePage homePage = new DemoHomePage(driver);
-    AccessoriesPage accessoriesPage = new AccessoriesPage(driver);
-    Shopping_Cart_Page shoppingCartPage = new Shopping_Cart_Page(driver);
-    Login login = new Login(driver);
+    DemoHomePage homePage = new DemoHomePage(chrome);
+    AccessoriesPage accessoriesPage = new AccessoriesPage(chrome);
+    Shopping_Cart_Page shoppingCartPage = new Shopping_Cart_Page(chrome);
+    Login login = new Login(chrome);
 
 
     @When("Navigate Computers menu and select Accessories")
@@ -29,7 +29,7 @@ public class PurchaseAccessory {
 
     @When("Select TCP Instructor Led Training and add to cart")
     public void select_tcp_instructor_led_training_and_add_to_cart() {
-       driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
        accessoriesPage.select_tcp_instructor_led_training_and_add_to_cart();
 
     }
@@ -56,11 +56,11 @@ public class PurchaseAccessory {
         homePage.launch();
     }
 
-  //  @When("User clicks on log in link")
-  //  public void userClicksOnLogInLink() {
- //       login.clickLogInLink();
+    @When("User clicks on log in link")
+    public void userClicksOnLogInLink() {
+        login.clickLogInLink();
 
-//    }
+    }
 
     @When("User enters log in and pass and clicks log in btn")
     public void userEntersLogInAndPassAndClicksLogInBtn() {
