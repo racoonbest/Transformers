@@ -26,6 +26,7 @@ public class HomePage {
     @FindBy(name = "q")
     WebElement search;
 
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);

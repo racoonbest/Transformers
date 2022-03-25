@@ -1,6 +1,6 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.*;
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
 
