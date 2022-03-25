@@ -1,4 +1,5 @@
 Feature: Add a Review
+  @regression @review
   Scenario: Verify only registered customer can leave a review
     Given Customer is on DemoShop home page
     When Customer searches for Health Book
