@@ -26,6 +26,9 @@ public class HomePage {
     @FindBy(name = "q")
     WebElement search;
 
+    @FindBy(css = ".account") // click email address on the main page
+    WebElement email;
+
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -48,6 +51,7 @@ public class HomePage {
     }
 
     public void emailAddress() {
+        email.click();
     }
 
 

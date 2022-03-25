@@ -6,7 +6,7 @@ import static stepDefinitions.TestSuiteSetUp.driver;
 
 public class ChangePasswordPage {
 
-    By changePass = By.cssSelector("a[href=\"/customer/changepassword\"]");
+    By changePass = By.cssSelector("a[href='/customer/changepassword']");
 
     By oldPass = By.cssSelector("#OldPassword");
     By newPass = By.cssSelector("#NewPassword");
