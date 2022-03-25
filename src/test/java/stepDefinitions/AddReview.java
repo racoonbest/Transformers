@@ -8,16 +8,9 @@ import static stepDefinitions.TestSuiteSetUp.driver;
 
 public class AddReview {
 
-    @When("Customer searches for Health Book")
-    public void customer_searches_for_health_book() {
-        driver.findElement(By.cssSelector("[value = 'Search store']")).sendKeys("health book"); // search health book
-        driver.findElement(By.cssSelector("[value = 'Search']")).click(); // click Search button
-    }
-
-    @When("Customer clicks the items")
+    @When("Customer clicks the item")
     public void customer_clicks_the_item() {
         driver.findElement(By.cssSelector(".product-title")).click();
-
     }
 
     @When("Customer clicks Add your review link")
@@ -30,7 +23,6 @@ public class AddReview {
         boolean isDisplayed = driver.findElement(By.cssSelector(".validation-summary-errors")).isDisplayed();
         System.out.println(isDisplayed);
     }
-
 
     @When("Customer fills out the review form")
     public void customer_fills_out_the_review_form() throws InterruptedException {

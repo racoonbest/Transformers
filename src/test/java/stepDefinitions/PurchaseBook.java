@@ -33,7 +33,6 @@ public class PurchaseBook {
         button.addMeCart();
            }
 
-
     @When("Customer opens shopping cart")
     public void customer_opens_shopping_cart() {
         click.openCart();
