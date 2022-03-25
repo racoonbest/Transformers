@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DemoHomePage {
 
-    WebDriver chrome;
+    WebDriver driver;
     String url = "http://demowebshop.tricentis.com/";
 
     By logInBtn = By.cssSelector("input[class=\'button-1 login-button\']");
@@ -19,20 +19,20 @@ public class DemoHomePage {
     @FindBy(xpath = "//a[@href='/accessories']") WebElement accessories;
 
 
-    public DemoHomePage(WebDriver chrome) {
-        this.chrome = chrome; PageFactory.initElements(chrome, this);
+    public DemoHomePage(WebDriver driver) {
+        this.driver = driver; PageFactory.initElements(driver, this);
     }
 
     public void launch(){
-        chrome.get(url);
+        driver.get(url);
     }
     public void clickLogInBtn(){
-        chrome.findElement(logInBtn).click();
+        driver.findElement(logInBtn).click();
     }
 
     public void navigate_computers_menu_and_select_accessories() {
-        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        Actions mouse = new Actions(chrome);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Actions mouse = new Actions(driver);
         mouse.moveToElement((computersOnMenu)).perform();
         accessories.click();
 

@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Shopping_Cart_Page {
 
-    WebDriver chrome;
+    WebDriver driver;
 
     By agreementCheckBox = By.cssSelector("input[name=\'termsofservice\']");
     By getAgreementCheck_OutBtn = By.cssSelector("button[name=\'checkout\']");
@@ -41,69 +41,69 @@ public class Shopping_Cart_Page {
     By continueBtn_ToHomePage = By.xpath("//input[@class= 'button-2 order-completed-continue-button']");
     By shoppingCart_Link = By.xpath("//a[@class=\'ico-cart\']");
 
-    public Shopping_Cart_Page(WebDriver chrome) {
-        this.chrome = chrome;
-        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    public Shopping_Cart_Page(WebDriver driver) {
+        this.driver = driver;
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     public void user_clicks_on_shopping_cart() throws InterruptedException {
         Thread.sleep(1000);
-        chrome.findElement(shoppingCart_Link).click();
+        driver.findElement(shoppingCart_Link).click();
     }
 
 
     public void shopping_cart_page_should_display() {
-        String title = chrome.getTitle();
+        String title = driver.getTitle();
         Assert.assertEquals("Demo Web Shop. Shopping Cart", title);
-        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     public void user_clicks_on_agreement_and_checkout() {
-        chrome.findElement(agreementCheckBox).click();
-        chrome.findElement(getAgreementCheck_OutBtn).click();
+        driver.findElement(agreementCheckBox).click();
+        driver.findElement(getAgreementCheck_OutBtn).click();
     }
 
 
     public void shippingAddress() {
-        chrome.findElement(continueBtn_Shipping_Address).click();
+        driver.findElement(continueBtn_Shipping_Address).click();
     }
 
     public void user_selects_payment_method() {
-        chrome.findElement(creditCard_CheckBox).click();
-        chrome.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        chrome.findElement(getCreditCard_ContinueBtn).click();
+        driver.findElement(creditCard_CheckBox).click();
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        driver.findElement(getCreditCard_ContinueBtn).click();
     }
 
     public void user_selects_shipping_method_and_clicks_continue() {
-        chrome.findElement(nextDayAir_Shipping).click();
-        chrome.findElement(shippingMethod_ContinueBtn).click();
+        driver.findElement(nextDayAir_Shipping).click();
+        driver.findElement(shippingMethod_ContinueBtn).click();
     }
 
     public void user_enters_payment_info_and_clicks_continue
             (String cartType, String CartHolderName, String cardNum, int month, String year, String code) {
-        Select creditCardDD = new Select(chrome.findElement(creditCard_typeDD));
+        Select creditCardDD = new Select(driver.findElement(creditCard_typeDD));
         creditCardDD.selectByVisibleText(cartType);
-        chrome.findElement(cardHolderName_input).sendKeys(CartHolderName);
-        chrome.findElement(cardNumber_inputBox).sendKeys(cardNum);
-        Select expireMonthDD = new Select(chrome.findElement(expirationMonth));
+        driver.findElement(cardHolderName_input).sendKeys(CartHolderName);
+        driver.findElement(cardNumber_inputBox).sendKeys(cardNum);
+        Select expireMonthDD = new Select(driver.findElement(expirationMonth));
         expireMonthDD.selectByIndex(month);
-        Select expireYearDD = new Select(chrome.findElement(expirationYear));
+        Select expireYearDD = new Select(driver.findElement(expirationYear));
         expireYearDD.selectByVisibleText(year);
-        chrome.findElement(cardCode).sendKeys(code);
-        chrome.findElement(payInfo_continueBtn).click();
+        driver.findElement(cardCode).sendKeys(code);
+        driver.findElement(payInfo_continueBtn).click();
     }
 
     public void confirm_order_and_clicks_continue()  {
-        boolean result = chrome.findElement(billingInfo).isDisplayed();
+        boolean result = driver.findElement(billingInfo).isDisplayed();
         Assert.assertTrue(result);
-        chrome.findElement(confirmBtn).click();
-        String actual = chrome.findElement(confirmMessage).getText();
+        driver.findElement(confirmBtn).click();
+        String actual = driver.findElement(confirmMessage).getText();
         String expected = "Your order has been successfully processed!";
         Assert.assertEquals(expected, actual);
-        chrome.findElement(continueBtn_ToHomePage).click();
+        driver.findElement(continueBtn_ToHomePage).click();
     }
     public void clickContinueBtn(){
-        chrome.findElement(continueBth_If_form_filled_out).click();
+        driver.findElement(continueBth_If_form_filled_out).click();
     }
 
 }
