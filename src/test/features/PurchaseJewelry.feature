@@ -7,7 +7,7 @@
       And Clicks on Jewelry menu
       Then Customer able to see jewelry items
       When Customer creates personalized jewelry
-      When Customer clicks on Add cart button
+      When Customer clicks on Add cart button 2
       When Customer opens shopping cart
       When Customer clicks on Agree and Checkout buttons
       When Customer chooses delivery methods

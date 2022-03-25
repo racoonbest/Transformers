@@ -1,20 +1,13 @@
 Feature: Purchase a Notebook
   @regression @notebook
   Scenario: As a customer I should be able to purchase a Notebook
-    Given Customer is on DemoShop home page
-    When Customer clicks Log In
-    When Navigate Computers menu and select Notebooks
-    When Customer clicks the item
-    When Add the item to the cart
-    When Customer clicks shopping cart
-    When Fill out Estimated Shipping information
+    Given Customer is in home page of DemoWebShop
+    When Customer logs in
+    When Customer searches for laptop
+    When Customer clicks on Add cart button
+    When Customer opens shopping cart
     When Customer clicks on Agree and Checkout buttons
-    When Select Billing Address
-    When Select Shipping Address and In-store pickup
-    When Select Payment Method
-    When Verify payment information
-    When Verify email address
-    Then Verify text: Your order has been successfully processed!
-    When Click "Click here for order details." link
-    When Go back to the previous page and click continue button
-    Then Log out and close the browser
+    Then Customer is in checkout page
+    When Customer chooses delivery methods
+    When Customer confirms delivery
+    Then Customer sees verification message

@@ -15,9 +15,12 @@ public class AddCart {
     }
     public void addMeCart(){
         driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
-        driver.findElement(addCartJewel).click();
-
+        driver.findElement(addCart).click();
     }
 
+    public void addJewelCart(){
+        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
+        driver.findElement(addCartJewel).click();
+    }
 
 }

@@ -10,6 +10,12 @@ public class PurchaseJewelry {
 
     HomePage start = new HomePage(driver);
     JewelryPage click = new JewelryPage(driver);
+    AddCart button = new AddCart(driver);
+
+    @When ("Customer clicks on Add cart button 2")
+    public void customer_clicks_on_add_cart_button_2(){
+    button.addJewelCart();
+    }
 
     @And("Clicks on Jewelry menu")
     public void clicks_on_jewelry_menu() {
