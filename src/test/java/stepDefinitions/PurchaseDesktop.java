@@ -1,18 +1,45 @@
 package stepDefinitions;
 
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import pageObjects.Login;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.junit.Assert.assertEquals;
 import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class PurchaseDesktop {
+    Login logIn;
+
+
+    @When("Customer is on Log in page")
+    public void customer_is_on_log_in_page() {
+        logIn = new Login(chrome);
+        logIn.launch();
+        chrome.manage().window().maximize();
+    }
+
+    @When("Customer fills out login form")
+    public void customer_fills_out_login_form() {
+        logIn.with("simba10@gmail.com","simba1");
+    }
+
+    //@Given("Customer is on DemoShop home page")
+    //public void customer_is_on_demo_shop_home_page() {
+      //  chrome.get("http://demowebshop.tricentis.com");
+        //chrome.manage().window().maximize();
+    //}
+
     @When("Customer enters desktop to search")
     public void customer_enters_desktop_to_search() {
         chrome.findElement(By.cssSelector("#small-searchterms")).sendKeys("Computer"+ Keys.ENTER);
@@ -34,10 +61,13 @@ public class PurchaseDesktop {
     public void customer_clicks_on_add_to_cart() {
        chrome.findElement(By.cssSelector("#add-to-cart-button-72")).click();
     }
-    @Then("Customer sees verify message")
-    public void customer_sees_verify_message() {
-        String verification = chrome.findElement(By.cssSelector(".bar-notification .content")).getText();
-        System.out.println(verification);
+     @Then("Customer sees verify message")
+      public void customer_sees_verify_message() {
+         chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        String actual = chrome.findElement(By.cssSelector(".bar-notification .content")).getText();
+        String expected = "The product has been added to your shopping cart";
+        assertEquals(expected, actual);
+
 
     }
     @When("Customer clicks on Shopping cart")
@@ -64,7 +94,7 @@ public class PurchaseDesktop {
        chrome.findElement(By.cssSelector("#checkout")).click();
     }
     @When("Customer clicks on Checkout continue buttons")
-    public void customer_clicks_on_checkout_continue_buttons() {
+    public void customer_clicks_on_checkout_continue_buttons() throws InterruptedException {
        chrome.findElement(By.cssSelector("#billing-buttons-container .new-address-next-step-button")).click();
        chrome.findElement(By.cssSelector("#shipping-buttons-container .new-address-next-step-button")).click();
        chrome.findElement(By.cssSelector("#shippingoption_1")).click();
@@ -72,12 +102,14 @@ public class PurchaseDesktop {
        chrome.findElement(By.cssSelector("#payment-method-buttons-container .payment-method-next-step-button")).click();
        chrome.findElement(By.cssSelector("#payment-info-buttons-container .payment-info-next-step-button")).click();
        chrome.findElement(By.cssSelector("#confirm-order-buttons-container .confirm-order-next-step-button")).click();
+       Thread.sleep(3000);
     }
     @Then("Customer sees Thank You")
-    public void customer_sees_thank_you() {
-        chrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        String thankYou = chrome.findElement(By.cssSelector(".page-title")).getText();
-        System.out.println(thankYou);
+    public void customer_sees_thank_you() throws InterruptedException {
+        String actual = chrome.findElement(By.cssSelector(".page-title")).getText();
+        String expected = "Thank you";
+        assertEquals(actual, expected);
+
 
     }
 

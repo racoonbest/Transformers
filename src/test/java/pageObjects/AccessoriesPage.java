@@ -7,7 +7,6 @@ import static stepDefinitions.TestSuiteSetUp.chrome;
 
 public class AccessoriesPage {
     WebDriver chrome;
-
     By ledTraining_AddToCart = By.xpath("(//input[@value='Add to cart'])[2]");
 
     public AccessoriesPage(WebDriver chrome) {
