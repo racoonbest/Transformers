@@ -1,5 +1,9 @@
 package stepDefinitions;
 
+
+import io.cucumber.java.en.When;
+import pageObjects.HomePage;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
@@ -7,9 +11,19 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
+
 import static stepDefinitions.TestSuiteSetUp.driver;
 
 public class PurchaseNotebook {
+
+
+    HomePage start = new HomePage(driver);
+    @When("Customer searches for laptop")
+    public void customer_searches_for_laptop(){
+        start.search("laptop");
+    }
+
+}
 
     @When("Customer clicks Log In")
     public void customer_clicks_log_in() {
@@ -122,3 +136,4 @@ public class PurchaseNotebook {
         driver.quit();
     }
 }
+

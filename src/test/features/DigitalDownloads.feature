@@ -1,4 +1,5 @@
 Feature:Digital Downloads
+  @regression @downloads
   Scenario:  Customer should be able to purchase Digital Downloads
     Given Customer is on Log in page
     When Customer fills out login form

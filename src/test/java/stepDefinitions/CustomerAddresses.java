@@ -4,6 +4,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import java.util.concurrent.TimeUnit;
+
 import static stepDefinitions.TestSuiteSetUp.driver;
 
 
@@ -20,6 +21,7 @@ public class CustomerAddresses {
     public void customer_fills_out_log_in_info() {
         driver.findElement(By.cssSelector("#Email")).sendKeys("simba10@gmail.com");
         driver.findElement(By.cssSelector("#Password")).sendKeys("simba1");
+
 
     }
 
