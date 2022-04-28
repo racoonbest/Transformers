@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Testing Demo Web Shop" parallel="methods" thread-count="3">
+    <test name="Chrome">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="stepDefinitions.TestSuiteSetUp"/>
+        </classes>
+    </test>
+    <test name="Firefox">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="stepDefinitions.TestSuiteSetUp"/>
+        </classes>
+    </test>
+    <test name="Edge">
+        <parameter name="browser" value="edge"></parameter>
+        <classes>
+            <class name="stepDefinitions.TestSuiteSetUp"/>
+        </classes>
+    </test>
+</suite> <!-- Suite -->

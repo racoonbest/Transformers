@@ -3,12 +3,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
 import java.util.concurrent.TimeUnit;
 import static stepDefinitions.TestSuiteSetUp.driver;
 
 
 public class CustomerAddresses {
-
 
     @When("Customer clicks on Log in")
     public void customer_clicks_on_log_in() {
