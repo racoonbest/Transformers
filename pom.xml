@@ -23,13 +23,13 @@
             <version>5.1.0</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>6.9.1</version>
-            <scope>test</scope>
+            <artifactId>cucumber-testng</artifactId>
+            <version>7.1.0</version>
         </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
@@ -45,14 +45,13 @@
             <version>6.9.1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.1</version>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.1.0</version>
             <scope>test</scope>
         </dependency>
-
 
 
     </dependencies>

@@ -3,8 +3,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
-
-
 import java.util.concurrent.TimeUnit;
 
 import static stepDefinitions.TestSuiteSetUp.driver;
